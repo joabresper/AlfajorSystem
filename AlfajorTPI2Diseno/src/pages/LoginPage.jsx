@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import '../pages/LoginPage.css'
-import { Navigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import Logo from "../../public/logo.png";
 
 const LoginPage = () => {
@@ -12,18 +11,24 @@ const LoginPage = () => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
+    event.preventDefault(); // Evita que el formulario se envíe y recargue la página
+    setLoading(true);
+    await delay(500);
+
     if (inputUsername === "mecanico" && inputPassword === "mecanico") {
+        navigate('/RTO');
     } else if (inputUsername === "ATT" && inputPassword === "ATT") {
+        navigate('/Turnos');
     } else if (inputUsername === "Gerente" && inputPassword === "Gerente") {
+        navigate('/abm');
     } else {
         setShow(true);
     }
+    setLoading(false);
   };
-
-  //usuarios del sistema
-
-
 
   function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -34,18 +39,15 @@ const LoginPage = () => {
       className="sign-in__wrapper"
       style={{ backgroundColor: '#E3D9B4' }}
     >
-      {/* Overlay */}
       <div className="sign-in__backdrop"></div>
-      {/* Form */}
+      
       <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit}>
-        {/* Header */}
         <img
           className="img-thumbnail mx-auto d-block mb-2"
           src={Logo}
           alt="logo"
         />
         <div className="h4 mb-2 text-center">Log In</div>
-        {/* ALert */}
         {show ? (
           <Alert
             className="mb-2"
@@ -53,7 +55,7 @@ const LoginPage = () => {
             onClose={() => setShow(false)}
             dismissible
           >
-            Incorrect username or password.
+            Usuario o contraseña incorrectos.
           </Alert>
         ) : (
           <div />
@@ -71,15 +73,15 @@ const LoginPage = () => {
         <Form.Group className="mb-2" controlId="password">
           <Form.Label>Contraseña</Form.Label>
           <Form.Control
-            type="contraseña"
+            type="password"
             value={inputPassword}
-            placeholder="contraseña"
+            placeholder="Contraseña"
             onChange={(e) => setInputPassword(e.target.value)}
             required
           />
         </Form.Group>
         <Form.Group className="mb-2" controlId="checkbox">
-          <Form.Check type="checkbox" label="Remember me" />
+          <Form.Check type="checkbox" label="Recordar" />
         </Form.Group>
         {!loading ? (
           <Button className="w-100" variant="primary" type="submit">
@@ -95,13 +97,12 @@ const LoginPage = () => {
             className="text-muted px-0"
             variant="link"
           >
-            Forgot password?
+            Olvidaste tu contraseña?
           </Button>
         </div>
       </Form>
-      {/* Footer */}
       <div className="w-100 mb-2 position-absolute bottom-0 start-50 translate-middle-x text-white text-center">
-        TPI2 Diseño de sistemas - G3 Alfajor| &copy;2024
+        TPI2 Diseño de sistemas - G3 Alfajor &copy;2024
       </div>
     </div>
   );
