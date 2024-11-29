@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const VehicleCard = ({ vehicle, onMoreInfo }) => {
+    const navigate = useNavigate();
     // Ruta de la imagen del vehículo
     const imagePath = `../../public/autos/auto${vehicle.Marca.replace(/\s+/g, "")}${vehicle.Modelo.replace(/\s+/g, "")}.png`;
 
@@ -58,7 +60,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
                 <div className="d-flex justify-content-between">
                     <button
                         className="btn btn-primary"
-                        onClick={() => alert(`Rellenar formulario RTO de ${vehicle.Marca} ${vehicle.Modelo}`)}
+                        onClick={() => navigate(`/Vehiculos/${vehicle.Patente}`)}
                     >
                         Rellenar formulario RTO
                     </button>

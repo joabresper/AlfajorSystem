@@ -6,6 +6,7 @@ import ABM from './pages/ABM/abm';
 import VehicleList from './pages/RTO/VehicleList';
 import Turnos from './pages/Turnos/Turnos';
 import "bootstrap/dist/css/bootstrap.min.css";
+import VehiclePage from './pages/RTO/VehiclePage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,7 +20,7 @@ function App() {
           <Route path="/abm" element={<ABM />} />
           <Route path="/Vehiculos" element={<VehicleList />} />
           <Route path="/turnos" element={<Turnos />} />
-
+          <Route path="/Vehiculos/:patente" element={<VehiclePage />} />
         </Routes>
       </BrowserRouter>
     </>
