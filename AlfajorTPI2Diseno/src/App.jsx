@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css'
 import LoginPage from './pages/LoginPage';
 import ABM from './pages/ABM/abm';
-import RTO from './pages/RTO/RTO';
+import VehicleList from './pages/RTO/VehicleList';
 import Turnos from './pages/Turnos/Turnos';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/abm" element={<ABM />} />
-          <Route path="/rto" element={<RTO />} />
+          <Route path="/Vehiculos" element={<VehicleList />} />
           <Route path="/turnos" element={<Turnos />} />
 
         </Routes>
