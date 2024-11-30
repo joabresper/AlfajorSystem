@@ -23,7 +23,7 @@ const LoginPage = () => {
     } else if (inputUsername === "ATT" && inputPassword === "ATT") {
         navigate('/Turnos');
     } else if (inputUsername === "Gerente" && inputPassword === "Gerente") {
-        navigate('/abm');
+        navigate('/menuGerente');
     } else {
         setShow(true);
     }

@@ -13,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import VehiclePage from './pages/RTO/VehiclePage';
 import Altamenu from './pages/ABM/altamenu';
 import AltaConfirmada from './pages/ABM/altaconfirmada';
+import MenuGerente from './pages/ABM/menuGerente';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +34,7 @@ function App() {
           <Route path="/Vehiculos" element={<VehicleList />} />
           <Route path="/turnos" element={<Turnos />} />
           <Route path="/Vehiculos/:patente" element={<VehiclePage />} />
+          <Route path="/menugerente" element={<MenuGerente />} />
         </Routes>
       </BrowserRouter>
     </>

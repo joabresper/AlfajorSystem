@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Altamenu = () => {
+  const navigate = useNavigate();
   return (
     <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#E6D9B6', position: 'relative' }}>
       <img style={{ width: 140, height: 114, position: 'absolute', left: 0, bottom: 0 }} src="/simbolos y alfajores/Alfajorchico.png" alt="Alfajorchico" />
@@ -16,6 +18,7 @@ const Altamenu = () => {
           border: 'none',
           cursor: 'pointer',
         }}
+        onClick={() => navigate('/menuabm')}
       >
         <img src="/simbolos y alfajores/ultraizquierda.png" alt="Flecha izquierda" style={{ width: '100%', height: '100%' }} />
       </button>
