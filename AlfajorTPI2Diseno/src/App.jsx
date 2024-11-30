@@ -3,10 +3,12 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css'
 import LoginPage from './pages/LoginPage';
 import ABM from './pages/ABM/abm';
-import RTO from './pages/RTO/RTO';
 import MenuATT from './pages/Turnos/MenuATT';
+import VehicleList from './pages/RTO/VehicleList';
 import Turnos from './pages/Turnos/Turnos';
 import "bootstrap/dist/css/bootstrap.min.css";
+import VehiclePage from './pages/RTO/VehiclePage';
+import VehicleControl from './pages/RTO/VehicleControl';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,10 +20,11 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/abm" element={<ABM />} />
-          <Route path="/rto" element={<RTO />} />
+          <Route path="/Vehiculos" element={<VehicleList />} />
           <Route path="/turnos" element={<Turnos />} />
           <Route path="/menuatt" element={<MenuATT />} />
-
+          <Route path="/Vehiculos/:patente" element={<VehiclePage />} />
+          <Route path="/Vehiculos/:patente/:control" element={<VehicleControl />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -19,7 +19,7 @@ const LoginPage = () => {
     await delay(500);
 
     if (inputUsername === "mecanico" && inputPassword === "mecanico") {
-        navigate('/RTO');
+        navigate('/Vehiculos');
     } else if (inputUsername === "ATT" && inputPassword === "ATT") {
         navigate('/menuatt');
     } else if (inputUsername === "Gerente" && inputPassword === "Gerente") {
@@ -46,8 +46,9 @@ const LoginPage = () => {
           className="img-thumbnail mx-auto d-block mb-2"
           src={Logo}
           alt="logo"
+          style={{ width: '50vw', height: 'auto' }} /* 50% del ancho del viewport */
         />
-        <div className="h4 mb-2 text-center">Log In</div>
+        <div className="h4 mb-2 text-center">Acceder</div>
         {show ? (
           <Alert
             className="mb-2"
@@ -85,11 +86,11 @@ const LoginPage = () => {
         </Form.Group>
         {!loading ? (
           <Button className="w-100" variant="primary" type="submit">
-            Log In
+            Acceder
           </Button>
         ) : (
           <Button className="w-100" variant="primary" type="submit" disabled>
-            Logging In...
+            Accediendo...
           </Button>
         )}
         <div className="d-grid justify-content-end">
