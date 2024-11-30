@@ -2,6 +2,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import {useState, useEffect} from 'react';
 import TurnosTable from '../../components/Turnos/ListaTurnos'
+import CalendarioTurnos from '../../components/Turnos/CalendarioTurnos';
 
 const Turnos = () => {
     return (
@@ -10,7 +11,9 @@ const Turnos = () => {
             <Tabs defaultActiveKey="profile" id="uncotrolled-tab-example" className="mb-3" >
                 <Tab eventKey="calendar" title="Calendario">
                  
-                    <h1>Calendario de turnos</h1>
+                    <div style={{ padding: '20px', height: '100%' }}>
+                        <CalendarioTurnos />
+                    </div>
           
                 </Tab >
                 <Tab eventKey="Lista" title="Listado">
