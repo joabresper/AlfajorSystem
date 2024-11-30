@@ -136,9 +136,9 @@ const VehicleList = () => {
                     />
                     <button
                         className="btn custom-btn"
-                        onClick={() => navigate(`/login`)}
+                        onClick={() => navigate(-1)}
                     >
-                        Cerrar Sesión
+                        Volver
                     </button>
                 </header>
 

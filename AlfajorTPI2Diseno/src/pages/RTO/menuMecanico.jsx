@@ -29,6 +29,13 @@ const MenuMecanico = () => {
                         <span className="menu-text">Visualizar<br />vehículos</span>
                     </button>
 
+                    <button
+                        className="menu-button"
+                        onClick={() => navigate('/login')}
+                    >
+                        <span className="menu-text">Cerrar<br />sesión</span>
+                    </button>
+
                 </div>
 
                 {/* Título */}
