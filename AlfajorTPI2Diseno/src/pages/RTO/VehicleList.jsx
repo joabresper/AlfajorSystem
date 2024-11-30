@@ -59,7 +59,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
                 <p className="card-text">Patente: {vehicle.Patente}</p>
                 <div className="d-flex justify-content-between">
                     <button
-                        className="btn btn-primary"
+                        className="btn custom-btn"
                         onClick={() => navigate(`/Vehiculos/${vehicle.Patente}`)}
                     >
                         Rellenar formulario RTO
@@ -135,7 +135,7 @@ const VehicleList = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <button
-                        className="btn btn-primary"
+                        className="btn custom-btn"
                         onClick={() => navigate(`/login`)}
                     >
                         Cerrar Sesión

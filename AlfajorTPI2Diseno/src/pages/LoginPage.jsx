@@ -19,7 +19,7 @@ const LoginPage = () => {
     await delay(500);
 
     if (inputUsername === "mecanico" && inputPassword === "mecanico") {
-        navigate('/Vehiculos');
+        navigate('/menumecanico');
     } else if (inputUsername === "ATT" && inputPassword === "ATT") {
         navigate('/menuatt');
     } else if (inputUsername === "Gerente" && inputPassword === "Gerente") {
@@ -39,7 +39,6 @@ const LoginPage = () => {
       className="sign-in__wrapper"
       style={{ backgroundColor: '#E3D9B4' }}
     >
-      <div className="sign-in__backdrop"></div>
       
       <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit}>
         <img
@@ -85,14 +84,33 @@ const LoginPage = () => {
           <Form.Check type="checkbox" label="Recordar" />
         </Form.Group>
         {!loading ? (
-          <Button className="w-100" variant="primary" type="submit">
+          <Button
+            className="w-100"
+            type="submit"
+            style={{
+              backgroundColor: '#CF7C20',
+              color: 'white',
+              border: 'none',
+            }}
+          >
             Acceder
           </Button>
         ) : (
-          <Button className="w-100" variant="primary" type="submit" disabled>
+          <Button
+            className="w-100"
+            type="submit"
+            style={{
+              backgroundColor: '#9E9E9E',
+              color: 'white',
+              border: 'none',
+              cursor: 'not-allowed',
+            }}
+            disabled
+          >
             Accediendo...
           </Button>
         )}
+
         <div className="d-grid justify-content-end">
           <Button
             className="text-muted px-0"

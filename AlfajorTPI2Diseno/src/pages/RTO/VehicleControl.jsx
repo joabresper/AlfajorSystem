@@ -110,12 +110,13 @@ function VehicleControl() {
                             style={{
                                 marginBottom: "10px",
                                 padding: "10px",
-                                border: `3px solid ${severityColors[item.severity]}`, // Aplicamos el color del borde
-                                borderRadius: "5px",
+                                border: `5px solid ${severityColors[item.severity]}`, // Aplicamos el color del borde
+                                borderRadius: "20px",
                                 backgroundColor: "#fff",
                                 display: "flex",
                                 justifyContent: "space-between",
-                                alignItems: "center"
+                                alignItems: "center",
+                                boxShadow: "0 0 0 2px gray" // Simula un borde negro adicional
                             }}
                         >
                             <span>{item.id} || {item.name}</span>
@@ -159,7 +160,7 @@ const styles = {
         padding: '10px 20px',
         fontSize: '18px',
         border: 'none',
-        backgroundColor: '#4CAF50',
+        backgroundColor: '#CF7C20',
         color: 'white',
         borderRadius: '5px',
         cursor: 'pointer',
@@ -170,7 +171,7 @@ const styles = {
         padding: '10px 20px',
         fontSize: '18px',
         border: 'none',
-        backgroundColor: '#ff0000',
+        backgroundColor: '#cf2920',
         color: 'white',
         borderRadius: '5px',
         cursor: 'pointer',

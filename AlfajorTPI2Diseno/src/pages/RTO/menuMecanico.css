@@ -1,0 +1,98 @@
+/* Contenedor principal */
+.container {
+    position: relative;
+    width: 1440px;
+    height: 100vh;
+    background: #E3D9B4;
+    margin: 0 auto;
+    /* Centra el contenedor */
+}
+
+/* Imagen inferior izquierda */
+.small-image {
+    width: 140px;
+    height: 114px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+/* Imagen central translúcida */
+.background-image {
+    width: 716px;
+    height: 720px;
+    position: absolute;
+    left: 305px;
+    top: 0;
+    opacity: 0.25;
+}
+
+/* Fondo del menú */
+.menu-background {
+    width: 820px;
+    height: 153px;
+    position: absolute;
+    left: 250px;
+    top: 444px;
+    background: #41301C;
+    border-radius: 8px;
+}
+
+/* Contenedor de los botones */
+.button-container {
+    position: absolute;
+    top: 465px;
+    left: 250px;
+    width: 820px;
+    display: flex;
+    justify-content: space-between;
+    /* Distribución equitativa */
+    align-items: center;
+    padding: 0 20px;
+    /* Margen interno */
+}
+
+/* Botón del menú */
+.menu-button {
+    width: 169px;
+    height: 110px;
+    padding: 12px;
+    background: #CF7C20;
+    border-radius: 8px;
+    border: 1px solid #2C2C2C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+    background: #d98c38;
+    /* Efecto hover */
+}
+
+/* Texto del botón */
+.menu-text {
+    color: #F5F5F5;
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+/* Título */
+.title {
+    position: relative;
+    width: 590px;
+    height: 58px;
+    margin: 0 auto;
+    /* Centra horizontalmente */
+    top: 131px;
+    text-align: center;
+    color: black;
+    font-size: 48px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}

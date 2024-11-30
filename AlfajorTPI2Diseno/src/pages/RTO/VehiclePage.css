@@ -123,3 +123,47 @@
 .severity-button:hover {
     opacity: 0.8;
 }
+
+.custom-btn {
+    background-color: #CF7C20;
+    /* Cambia el color de fondo */
+    color: white;
+    /* Cambia el color del texto */
+    border: none;
+    /* Opcional: quitar el borde */
+}
+
+.custom-btn:hover {
+    background-color: #bd6e14;
+    /* Color al hacer hover */
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.page-container {
+    background-color: #f0f0f0;
+    background-image: url('/ruta/a/tu/imagen.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+body {
+    background-color: #E3D9B4;
+    /* Color sólido */
+    background-image: url('/ruta/a/tu/imagen.jpg');
+    /* Imagen de fondo */
+    background-size: cover;
+    /* Escala la imagen para que cubra toda la página */
+    background-position: center;
+    /* Centra la imagen */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+}
