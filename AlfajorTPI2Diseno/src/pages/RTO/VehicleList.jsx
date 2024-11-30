@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const VehicleCard = ({ vehicle, onMoreInfo }) => {
     const navigate = useNavigate();
     // Ruta de la imagen del vehículo
-    const imagePath = `../../public/autos/auto${vehicle.Marca.replace(/\s+/g, "")}${vehicle.Modelo.replace(/\s+/g, "")}.png`;
+    const imagePath = `../../autos/auto${vehicle.Marca.replace(/\s+/g, "")}${vehicle.Modelo.replace(/\s+/g, "")}.png`;
 
     // Control de errores de carga de imagen
     const [imageError, setImageError] = useState(false);
@@ -14,7 +14,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
     };
 
     const imageSrc = imageError
-        ? "../../public/autos/autoNoEncontrado.png" // Imagen por defecto si no se encuentra la imagen del vehículo
+        ? "../../autos/autoNoEncontrado.png" // Imagen por defecto si no se encuentra la imagen del vehículo
         : imagePath;
 
     return (
@@ -32,7 +32,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    height: "150px", // Fijamos la altura para que no se estire
+                    height: "16rem", // Fijamos la altura para que no se estire
                     overflow: "hidden",
                 }}
             >
@@ -107,7 +107,7 @@ const VehicleList = () => {
         console.log("Cerrar modal");
         setSelectedVehicle(null); // Esto debería cerrar el modal
     };
-
+    
 
     return (
         <div className="container">
@@ -180,14 +180,14 @@ const VehicleList = () => {
                         </div>
                         <div className="modal-body d-flex">
                             <img
-                                src={`../../public/autos/auto${selectedVehicle.Marca.replace(
+                                src={`../../autos/auto${selectedVehicle.Marca.replace(
                                     /\s+/g,
                                     ""
                                 )}${selectedVehicle.Modelo.replace(/\s+/g, "")}.png`}
                                 alt={`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}
                                 onError={(e) => {
                                     e.target.onerror = null; // Previene un ciclo infinito si la imagen de "autoNoEncontrado.png" no se carga
-                                    e.target.src = "../../public/autos/autoNoEncontrado.png"; // Cambia la imagen en caso de error
+                                    e.target.src = "../../autos/autoNoEncontrado.png"; // Cambia la imagen en caso de error
                                 }}
                                 style={{
                                     objectFit: "contain", // Mantener la proporción original de la imagen

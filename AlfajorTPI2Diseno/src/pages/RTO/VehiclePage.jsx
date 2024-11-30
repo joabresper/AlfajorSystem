@@ -1,5 +1,5 @@
-import { React, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './VehiclePage.css';
 
 const menuItems = [
@@ -23,50 +23,106 @@ const menuItems = [
     { id: 'sistemadeenganchevehiculoarrastrado', name: 'Sistema de Enganche – Vehículo Arrastrado', icon: '/iconos/sistemadeenganchevehiculoarrastrado.png', disabled: false },
     { id: 'unidadesportacontenedores', name: 'Unidades Porta Contenedores', icon: '/iconos/unidadesportacontenedores.png', disabled: false },
     { id: 'cargaspeligrosas', name: 'Cargas Peligrosas', icon: '/iconos/cargaspeligrosas.png', disabled: false },
-    { id: 'sinreglamentar', name: 'Sin Reglamentar', icon: '/iconos/sinreglamentar.png', disabled: false },
     { id: 'transporteescolar', name: 'Transporte Escolar', icon: '/iconos/transporteescolar.png', disabled: false },
     { id: 'transportedeanimalesvivos', name: 'Transporte de Animales Vivos y Productos de Origen Vegetal o Animal', icon: '/iconos/transportedeanimalesvivos.png', disabled: false },
 ];
 
 function VehiclePage() {
     const { patente } = useParams(); // Captura la patente de la URL
+    const navigate = useNavigate(); // Hook para redirigir
     const [disabledItems, setDisabledItems] = useState([
-        'vehiculospuladosgnc', 'sistemadeenganchetractormotriz', 'sistemadeenganchevehiculoarrastrado',
-        'sistemadearrastredeacoplados', 'transporteescolar', 'transportedeanimalesvivos', 'cargaspeligrosas',
-        'unidadesportacontenedores'
+        "vehiculospuladosgnc",
+        "sistemadeenganchetractormotriz",
+        "sistemadeenganchevehiculoarrastrado",
+        "sistemadearrastredeacoplados",
+        "transporteescolar",
+        "transportedeanimalesvivos",
+        "cargaspeligrosas",
+        "unidadesportacontenedores",
+        "salidasdeemergencia",
+        "vehiculostransportepasajeros",
     ]);
+
+    const handleGoBack = () => {
+        navigate(-1); // Volvemos atrás en el historial
+    };
+    
+    // Función para convertir nombres a PascalCase sin tildes ni eñes
+    const convertToPascalCase = (text) => {
+        const normalizeText = text
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") // Elimina tildes
+            .replace(/ñ/g, "n") // Convierte eñes a "n"
+            .replace(/[^a-zA-Z\s]/g, ""); // Elimina caracteres especiales
+
+        return normalizeText
+            .split(" ")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join("");
+    };
 
     const handleClick = (id) => {
         if (disabledItems.includes(id)) {
             return; // No hacer nada si está deshabilitado
         }
-        console.log(`Opción seleccionada: ${id}`);
+        const selectedItem = menuItems.find((item) => item.id === id);
+        if (selectedItem) {
+            const pascalCaseName = convertToPascalCase(selectedItem.name);
+            navigate(`./${pascalCaseName}`); // Navegar a la página con PascalCase
+        }
     };
 
     const isDisabled = (id) => disabledItems.includes(id);
+
     return (
         <div>
-            <h1>Formulario RTO del vehículo con patente: {patente}</h1>
+            <header style={{ padding: "20px", background: "#f0f0f0", textAlign: "center" }}>
+                <h1>Formulario RTO del vehículo con patente: {patente}</h1>
+            </header>
             <div className="menu">
-                {menuItems.map(item => (
+                {menuItems.map((item) => (
                     <div
                         key={item.id}
-                        className={`menu-item ${isDisabled(item.id) ? 'disabled' : ''}`}
+                        className={`menu-item ${isDisabled(item.id) ? "disabled" : ""}`}
                         onClick={() => handleClick(item.id)}
                     >
                         <img
                             src={item.icon}
                             alt={item.name}
-                            className={`menu-icon ${isDisabled(item.id) ? 'grayscale' : ''}`}
+                            className={`menu-icon ${isDisabled(item.id) ? "grayscale" : ""}`}
                         />
-                        <p className={`menu-name ${isDisabled(item.id) ? 'grayscale-text' : ''}`}>
+                        <p className={`menu-name ${isDisabled(item.id) ? "grayscale-text" : ""}`}>
                             {item.name}
                         </p>
                     </div>
                 ))}
             </div>
+            <div style={styles.container}>
+                <button style={styles.button} onClick={handleGoBack}>
+                    Volver
+                </button>
+            </div>
         </div>
     );
 }
+
+const styles = {
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    button: {
+        padding: '10px 20px',
+        fontSize: '18px',
+        border: 'none',
+        backgroundColor: '#4CAF50',
+        color: 'white',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        transition: 'background-color 0.3s ease, transform 0.3s ease',
+    },
+};
 
 export default VehiclePage;
