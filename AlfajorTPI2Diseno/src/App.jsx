@@ -14,6 +14,7 @@ import VehiclePage from './pages/RTO/VehiclePage';
 import Altamenu from './pages/ABM/altamenu';
 import AltaConfirmada from './pages/ABM/altaconfirmada';
 import MenuGerente from './pages/ABM/menuGerente';
+import ModificarMenu from './pages/ABM/modificarmenu';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +31,7 @@ function App() {
           <Route path="/bajamenu" element={<BajaMenu />} />
           <Route path="/bajaconfirmada" element={<BajaConfirmada />} />
           <Route path="/bajaconfirm" element={<BajaConfirmacion />} />
+          <Route path="/modificarmenu" element={<ModificarMenu />} />
           <Route path="/menuabm" element={<Menuabm />} />
           <Route path="/Vehiculos" element={<VehicleList />} />
           <Route path="/turnos" element={<Turnos />} />

@@ -22,7 +22,7 @@ const Menuabm = () => {
       
       {/* Sección Modificación */}
       <button style={{ width: 253, height: 75, padding: 12, position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: '#CF7C20', borderRadius: 8, overflow: 'hidden', border: '1px #2C2C2C solid', display: 'flex', alignItems: 'center', gap: 8 }}
-        onClick={() => navigate()}
+        onClick={() => navigate('/modificarmenu')}
       >
         <img style={{ width: 32, height: 32 }} src="/simbolos y alfajores/maslivianoqueunapala.png" alt="Modificación" />
         <div style={{ color: '#F5F5F5', fontSize: 24, fontFamily: 'Inter', fontWeight: '400', lineHeight: '24px' }}>Modificación</div>
