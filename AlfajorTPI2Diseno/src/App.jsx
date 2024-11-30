@@ -12,6 +12,7 @@ import Turnos from './pages/Turnos/Turnos';
 import "bootstrap/dist/css/bootstrap.min.css";
 import VehiclePage from './pages/RTO/VehiclePage';
 import Altamenu from './pages/ABM/altamenu';
+import AltaConfirmada from './pages/ABM/altaconfirmada';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/abm" element={<ABM />} />
           <Route path="/altamenu" element={<Altamenu />} />
+          <Route path="/altaconfirmada" element={<AltaConfirmada />} />
           <Route path="/bajamenu" element={<BajaMenu />} />
           <Route path="/bajaconfirmada" element={<BajaConfirmada />} />
           <Route path="/bajaconfirm" element={<BajaConfirmacion />} />

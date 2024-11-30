@@ -2,70 +2,51 @@ import React from 'react';
 
 const Altamenu = () => {
   return (
-    <div style={{ width: '1920px', height: '1080px', position: 'relative', background: '#E6D9B6' }}>
-      {/* Header */}
-      <div
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#E6D9B6', position: 'relative' }}>
+      <img style={{ width: 140, height: 114, position: 'absolute', left: 0, bottom: 0 }} src="/simbolos y alfajores/Alfajorchico.png" alt="Alfajorchico" />
+      
+      <button
         style={{
-          width: '75px',
-          height: '60px',
-          padding: '8px',
+          width: '50px',
+          height: '50px',
           position: 'absolute',
-          top: '6px',
-          left: '0',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '10px',
+          top: '10px',
+          left: '10px',
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
         }}
       >
-        <div
-          style={{
-            background: '#41301C',
-            borderRadius: '100%',
-            overflow: 'hidden',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <div
-            style={{
-              padding: '8px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <div style={{ width: '24px', height: '24px' }}></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
+        <img src="/simbolos y alfajores/ultraizquierda.png" alt="Flecha izquierda" style={{ width: '100%', height: '100%' }} />
+      </button>
+      
       <div
         style={{
           width: '969px',
           height: '941px',
           padding: '24px',
-          position: 'absolute',
-          top: '94px',
-          left: '467px',
           background: 'white',
           borderRadius: '8px',
           border: '1px solid #D9D9D9',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '24px',
         }}
       >
         {/* Form Fields */}
-        <FormField label="Nombre de usuario" top="113px" left="527px" />
-        <FormField label="Contraseña" top="120px" left="976px" />
-        <FormField label="DNI" top="226px" left="976px" />
-        <FormField label="Rol" top="226px" left="527px" />
-        <FormField label="Nombre" top="323px" left="526px" />
-        <FormField label="Apellido" top="340px" left="976px" />
-        <FormField label="Correo electrónico" top="458px" left="526px" />
-        <FormField label="Teléfono" top="572px" left="976px" />
-        <FormField label="Dirección" top="572px" left="527px" />
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
+          <FormField label="Nombre de usuario" />
+          <FormField label="Contraseña" />
+          <FormField label="DNI" />
+          <FormField label="Rol" />
+          <FormField label="Nombre" />
+          <FormField label="Apellido" />
+          <FormField label="Correo electrónico" />
+          <FormField label="Teléfono" />
+          <FormField label="Dirección" />
+          <FormField label="Fecha" type="date" />
+        </div>
 
         {/* Save Button */}
         <button
@@ -73,9 +54,6 @@ const Altamenu = () => {
             width: '143px',
             height: '71px',
             padding: '12px',
-            position: 'absolute',
-            top: '915px',
-            left: '897px',
             background: '#CF7C20',
             borderRadius: '8px',
             border: '1px solid #2C2C2C',
@@ -94,15 +72,12 @@ const Altamenu = () => {
 };
 
 // Reusable FormField Component
-const FormField = ({ label, top, left }) => {
+const FormField = ({ label, type = 'text' }) => {
   return (
     <div
       style={{
         width: '370px',
         height: '88px',
-        position: 'absolute',
-        top: top,
-        left: left,
         display: 'flex',
         flexDirection: 'column',
         gap: '8px',
@@ -119,20 +94,19 @@ const FormField = ({ label, top, left }) => {
       >
         {label}
       </div>
-      <div
+      <input
+        type={type}
         style={{
           padding: '12px 16px',
           background: 'white',
           borderRadius: '8px',
           border: '1px solid #D9D9D9',
-          color: '#B3B3B3',
+          color: '#1E1E1E',
           fontSize: '16px',
           fontFamily: 'Inter',
           fontWeight: '400',
         }}
-      >
-        Value
-      </div>
+      />
     </div>
   );
 };

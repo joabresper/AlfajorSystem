@@ -1,97 +1,97 @@
-const ABM = () => {
-    const styles = {
-        container: {
-          width: '100vw',
-          height: '100vh',
-          position: 'relative',
-          background: '#E6D9B6',
-        },
-        imageSmall: {
-          width: 140,
-          height: 114,
-          position: 'absolute',
-          left: 0,
-          bottom: 0,
-        },
-        imageLarge: {
-          width: '58%', // Escala según el tamaño de la pantalla
-          height: '100%',
-          position: 'absolute',
-          left: '21%',
-          top: 0,
-          opacity: 0.25,
-        },
-        darkBox: {
-          width: '78%', // Escala según la pantalla
-          height: '28%',
-          position: 'absolute',
-          left: '11%',
-          top: '50%',
-          background: '#41301C',
-          borderRadius: '8px',
-        },
-        card: {
-          width: '12%',
-          height: '20%',
-          padding: '12px',
-          position: 'absolute',
-          background: '#CF7C20',
-          borderRadius: '8px',
-          overflow: 'hidden',
-          border: '1px solid #2C2C2C',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '8px',
-          display: 'inline-flex',
-          textAlign: 'center',
-          color: '#F5F5F5',
-          fontSize: '1.2rem',
-          fontFamily: 'Roboto',
-          fontWeight: '400',
-          lineHeight: '1.4rem',
-          wordWrap: 'break-word',
-        },
-        greeting: {
-          width: '38%',
-          height: 'auto',
-          position: 'absolute',
-          left: '31%',
-          top: '22%',
-          textAlign: 'center',
-          color: 'black',
-          fontSize: '2.5rem',
-          fontFamily: 'Inter',
-          fontWeight: '700',
-          lineHeight: '1.2',
-          wordWrap: 'break-word',
-        },
-      };
-    
-      return (
-        <div style={styles.container}>
-          <img
-            style={styles.imageSmall}
-            src="public/simbolos y alfajores/Alfajorchico.png"
-            alt="Small placeholder"
-          />
-          <img
-            style={styles.imageLarge}
-            src="public/simbolos y alfajores/alfactory.png"
-            alt="Large placeholder"
-          />
-          <div style={styles.darkBox}></div>
-          <div style={{ ...styles.card, left: '15%', top: '55%' }}>
-            <div>LISTA <br />CLIENTES</div>
-          </div>
-          <div style={{ ...styles.card, left: '44%', top: '55%' }}>
-            <div>ABM <br />USUARIOS</div>
-          </div>
-          <div style={{ ...styles.card, left: '73%', top: '55%' }}>
-            <div>LISTA <br />VEHÍCULOS</div>
-          </div>
-          <div style={styles.greeting}>¡Hola Gerente!</div>
-        </div>
-      );
-    };
+import React from 'react';
 
-export default ABM;
+const Altamenu = () => {
+  return (
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#E6D9B6' }}>
+      <div
+        style={{
+          width: '969px',
+          height: '941px',
+          padding: '24px',
+          background: 'white',
+          borderRadius: '8px',
+          border: '1px solid #D9D9D9',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '24px',
+        }}
+      >
+        {/* Form Fields */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
+          <FormField label="Nombre de usuario" />
+          <FormField label="Contraseña" />
+          <FormField label="DNI" />
+          <FormField label="Rol" />
+          <FormField label="Nombre" />
+          <FormField label="Apellido" />
+          <FormField label="Correo electrónico" />
+          <FormField label="Teléfono" />
+          <FormField label="Dirección" />
+        </div>
+
+        {/* Save Button */}
+        <button
+          style={{
+            width: '143px',
+            height: '71px',
+            padding: '12px',
+            background: '#CF7C20',
+            borderRadius: '8px',
+            border: '1px solid #2C2C2C',
+            color: '#F5F5F5',
+            fontSize: '16px',
+            fontFamily: 'Inter',
+            fontWeight: '400',
+            cursor: 'pointer',
+          }}
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// Reusable FormField Component
+const FormField = ({ label }) => {
+  return (
+    <div
+      style={{
+        width: '370px',
+        height: '88px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+      }}
+    >
+      <div
+        style={{
+          color: '#1E1E1E',
+          fontSize: '16px',
+          fontFamily: 'Inter',
+          fontWeight: '400',
+          lineHeight: '22.4px',
+        }}
+      >
+        {label}
+      </div>
+      <div
+        style={{
+          padding: '12px 16px',
+          background: 'white',
+          borderRadius: '8px',
+          border: '1px solid #D9D9D9',
+          color: '#B3B3B3',
+          fontSize: '16px',
+          fontFamily: 'Inter',
+          fontWeight: '400',
+        }}
+      >
+        Value
+      </div>
+    </div>
+  );
+};
+
+export default Altamenu;
