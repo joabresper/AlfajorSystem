@@ -111,110 +111,112 @@ const VehicleList = () => {
     
 
     return (
-        <div className="container">
-            {/* Header con título y barra de búsqueda */}
-            <header
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "1rem",
-                    marginBottom: "1.5rem",
-                    backgroundColor: "#f8f9fa",
-                    borderBottom: "2px solid #ccc",
-                }}
-            >
-                <h1 style={{ margin: 0 }}>Vehículos asignados</h1>
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Buscar por patente..."
-                    style={{ width: "300px" }}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button
-                    className="btn btn-primary"
-                    onClick={() => navigate(`/login`)}
-                >
-                    Cerrar Sesión
-                </button>
-            </header>
-
-            {/* Lista de vehículos */}
-            <div className="row">
-                {filteredVehicles.length > 0 ? (
-                    filteredVehicles.map((vehicle, index) => (
-                        <div className="col-md-4" key={index}>
-                            <VehicleCard vehicle={vehicle} onMoreInfo={handleMoreInfo} />
-                        </div>
-                    ))
-                ) : (
-                    <p className="text-center">No se encontraron vehículos con esa patente.</p>
-                )}
-            </div>
-            {/* Modal con la información del vehículo */}
-            {selectedVehicle && (
-                <div
-                    className="modal"
+        <div style={{width:'100%', height:'300vh', backgroundColor:'#E3D9B4'}}>
+            <div className="container" >
+                {/* Header con título y barra de búsqueda */}
+                <header
                     style={{
-                        display: "block",
-                        position: "fixed",
-                        top: "0",
-                        left: "0",
-                        width: "100%",
-                        height: "100%",
-                        backgroundColor: "rgba(0, 0, 0, 0.5)", // Fondo oscuro
-                        zIndex: 1050,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "1rem",
+                        marginBottom: "1.5rem",
+                        backgroundColor: "#f8f9fa",
+                        borderBottom: "2px solid #ccc",
                     }}
-                    onClick={closeModal} // Cerrar el modal al hacer clic en el fondo
                 >
-                    <div
-                        className="modal-dialog"
-                        style={{
-                            maxWidth: "900px",
-                            margin: "50px auto",
-                            backgroundColor: "#fff",
-                            padding: "20px",
-                            borderRadius: "8px",
-                            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                            zIndex: 1060,
-                        }}
-                        onClick={(e) => e.stopPropagation()} // Evita que el clic en el diálogo cierre el modal
+                    <h1 style={{ margin: 0 }}>Vehículos asignados</h1>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Buscar por patente..."
+                        style={{ width: "300px" }}
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => navigate(`/login`)}
                     >
-                        <div className="modal-header">
-                            <h3 className="modal-title">{`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}</h3>
-                        </div>
-                        <div className="modal-body d-flex">
-                            <img
-                                src={`../../autos/auto${selectedVehicle.Marca.replace(
-                                    /\s+/g,
-                                    ""
-                                )}${selectedVehicle.Modelo.replace(/\s+/g, "")}.png`}
-                                alt={`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}
-                                onError={(e) => {
-                                    e.target.onerror = null; // Previene un ciclo infinito si la imagen de "autoNoEncontrado.png" no se carga
-                                    e.target.src = "../../autos/autoNoEncontrado.png"; // Cambia la imagen en caso de error
-                                }}
-                                style={{
-                                    objectFit: "contain", // Mantener la proporción original de la imagen
-                                    width: "200px",
-                                    height: "auto",
-                                    marginRight: "20px",
-                                }}
-                            />
-                            <div>
-                                <p><strong>Año:</strong> {selectedVehicle.Año}</p>
-                                <p><strong>Patente:</strong> {selectedVehicle.Patente}</p>
-                                <p><strong>Fecha de Ingreso:</strong> {selectedVehicle.FechaIngreso}</p>
-                                <p><strong>Dueño:</strong> {selectedVehicle.Dueno}</p>
-                                <p><strong>DNI del dueño:</strong> {selectedVehicle.Dni}</p>
-                                <p><strong>Otras personas que pueden retirar:</strong> {selectedVehicle.OtrosRetirar}</p>
+                        Cerrar Sesión
+                    </button>
+                </header>
+
+                {/* Lista de vehículos */}
+                <div className="row">
+                    {filteredVehicles.length > 0 ? (
+                        filteredVehicles.map((vehicle, index) => (
+                            <div className="col-md-4" key={index}>
+                                <VehicleCard vehicle={vehicle} onMoreInfo={handleMoreInfo} />
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-center">No se encontraron vehículos con esa patente.</p>
+                    )}
+                </div>
+                {/* Modal con la información del vehículo */}
+                {selectedVehicle && (
+                    <div
+                        className="modal"
+                        style={{
+                            display: "block",
+                            position: "fixed",
+                            top: "0",
+                            left: "0",
+                            width: "100%",
+                            height: "100%",
+                            backgroundColor: "rgba(0, 0, 0, 0.5)", // Fondo oscuro
+                            zIndex: 1050,
+                        }}
+                        onClick={closeModal} // Cerrar el modal al hacer clic en el fondo
+                    >
+                        <div
+                            className="modal-dialog"
+                            style={{
+                                maxWidth: "900px",
+                                margin: "50px auto",
+                                backgroundColor: "#fff",
+                                padding: "20px",
+                                borderRadius: "8px",
+                                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                                zIndex: 1060,
+                            }}
+                            onClick={(e) => e.stopPropagation()} // Evita que el clic en el diálogo cierre el modal
+                        >
+                            <div className="modal-header">
+                                <h3 className="modal-title">{`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}</h3>
+                            </div>
+                            <div className="modal-body d-flex">
+                                <img
+                                    src={`../../autos/auto${selectedVehicle.Marca.replace(
+                                        /\s+/g,
+                                        ""
+                                    )}${selectedVehicle.Modelo.replace(/\s+/g, "")}.png`}
+                                    alt={`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}
+                                    onError={(e) => {
+                                        e.target.onerror = null; // Previene un ciclo infinito si la imagen de "autoNoEncontrado.png" no se carga
+                                        e.target.src = "../../autos/autoNoEncontrado.png"; // Cambia la imagen en caso de error
+                                    }}
+                                    style={{
+                                        objectFit: "contain", // Mantener la proporción original de la imagen
+                                        width: "200px",
+                                        height: "auto",
+                                        marginRight: "20px",
+                                    }}
+                                />
+                                <div>
+                                    <p><strong>Año:</strong> {selectedVehicle.Año}</p>
+                                    <p><strong>Patente:</strong> {selectedVehicle.Patente}</p>
+                                    <p><strong>Fecha de Ingreso:</strong> {selectedVehicle.FechaIngreso}</p>
+                                    <p><strong>Dueño:</strong> {selectedVehicle.Dueno}</p>
+                                    <p><strong>DNI del dueño:</strong> {selectedVehicle.Dni}</p>
+                                    <p><strong>Otras personas que pueden retirar:</strong> {selectedVehicle.OtrosRetirar}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 };

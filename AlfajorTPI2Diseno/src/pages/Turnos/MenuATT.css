@@ -1,16 +1,17 @@
 /* Contenedor principal */
 .container {
-    width: 1280px;
-    height: 720px;
     position: relative;
-    background: #E6D9B6;
+    width: 1440px;
+    height: 100vh;
+    background: #E3D9B4;
+
   }
   
   /* Imagen inferior izquierda */
   .small-image {
     width: 140px;
     height: 114px;
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
   }
@@ -63,7 +64,7 @@
   
   /* Título */
   .title {
-    position: absolute;
+    position: relative;
     width: 590px;
     height: 58px;
     left: 368px;
