@@ -21,7 +21,7 @@ const LoginPage = () => {
     if (inputUsername === "mecanico" && inputPassword === "mecanico") {
         navigate('/RTO');
     } else if (inputUsername === "ATT" && inputPassword === "ATT") {
-        navigate('/Turnos');
+        navigate('/menuatt');
     } else if (inputUsername === "Gerente" && inputPassword === "Gerente") {
         navigate('/abm');
     } else {
