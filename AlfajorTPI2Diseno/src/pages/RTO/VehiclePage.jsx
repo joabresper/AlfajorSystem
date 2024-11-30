@@ -28,6 +28,8 @@ const menuItems = [
 ];
 
 function VehiclePage() {
+    const [modalVisible, setModalVisible] = useState(false);
+    const [resultado, setResultado] = useState({ tipo: "", mensaje: "" });
     const { patente } = useParams(); // Captura la patente de la URL
     const navigate = useNavigate(); // Hook para redirigir
     const [disabledItems, setDisabledItems] = useState([
@@ -74,6 +76,36 @@ function VehiclePage() {
 
     const isDisabled = (id) => disabledItems.includes(id);
 
+    const completarFormulario = () => {
+        const resultados = [
+            {
+                tipo: "APTO",
+                mensaje:
+                    "Vehículo sin defectos o con defectos leves, que no inciden sobre aspectos de seguridad. Se le extiende el certificado aprobado por el término legal.",
+                extra: "Se envió el correo notificando el estado de apto",
+            },
+            {
+                tipo: "CONDICIONAL",
+                mensaje:
+                    "Vehículo con uno (1) o más defectos moderados. Se le extiende el certificado de aprobado por el término legal cuando se cumpla con los requisitos de APTO, con fecha a partir de su nueva inspección.",
+                extra: "Se le extiende la planilla de revisión técnica por un término de 30 días. Se agendó una nueva revisión para dentro de 30 días y fue notificado por correo",
+            },
+            {
+                tipo: "RECHAZADO",
+                mensaje:
+                    "Vehículo con uno (1) o más defectos graves. Impide al vehículo circular por la vía pública. Luego requiere una nueva inspección total de la unidad.",
+                extra: "Se envió el correo notificando el estado de rechazado",
+            },
+        ];
+
+        // Selecciona un resultado aleatorio
+        const resultadoAleatorio = resultados[Math.floor(Math.random() * resultados.length)];
+        setResultado(resultadoAleatorio);
+        setModalVisible(true); // Muestra el modal
+    };
+
+    const cerrarModal = () => setModalVisible(false); // Oculta el modal
+
     return (
         <div>
             <header style={{ padding: "20px", background: "#f0f0f0", textAlign: "center" }}>
@@ -102,6 +134,60 @@ function VehiclePage() {
                     </div>
                 ))}
             </div>
+            <footer style={{ padding: "20px", background: "#f0f0f0", textAlign: "center" }}>
+                <div style={styles.container}>
+                    <button style={styles.button} onClick={completarFormulario}>
+                        <h1>Completar Formulario RTO</h1>
+                    </button>
+                </div>
+            </footer>
+            {/* Modal */}
+            {modalVisible && (
+                <div
+                    style={{
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        zIndex: 1000,
+                    }}
+                >
+                    <div
+                        style={{
+                            background: "#fff",
+                            padding: "20px",
+                            borderRadius: "10px",
+                            width: "90%",
+                            maxWidth: "800px",
+                            textAlign: "center",
+                        }}
+                    >
+                        <h1>{resultado.tipo}</h1>
+                        <h2>{resultado.mensaje}</h2>
+                        <p>{resultado.extra}</p>
+                        <button
+                            style={{
+                                padding: "10px 20px",
+                                fontSize: "16px",
+                                background: "#007BFF",
+                                color: "#fff",
+                                border: "none",
+                                borderRadius: "5px",
+                                cursor: "pointer",
+                                marginTop: "10px",
+                            }}
+                            onClick={cerrarModal}
+                        >
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
