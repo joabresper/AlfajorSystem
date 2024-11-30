@@ -25,7 +25,7 @@ const TurnosTable = () => {
     });
 
     return (
-        <div style={{ height: "100%" }}>
+        <div style={{ height: "100%", padding:'10px'}}>
             <div className="d-flex justify-content-around align-items-center mb-3">
                 <div style={{ width: '80%' }}>
                     <label htmlFor="filter">Filtrar por Nombre o DNI:</label>

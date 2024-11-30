@@ -86,7 +86,7 @@ const CalendarioTurnos = () => {
       <div style={{ padding: '20px', paddingTop:'0' }}>
         <div className="calendar-header">
         <div className="calendar-nav">
-            <button onClick={handlePrevMonth}>{"<"}</button>
+            <button className='botonColor' onClick={handlePrevMonth}>{"<"}</button>
             <span>{currentMonth.toLocaleString('default', { month: 'long' })}</span>
             <button onClick={handleNextMonth}>{">"}</button>
         </div>
@@ -119,7 +119,7 @@ const CalendarioTurnos = () => {
               style={{
                 border: '1px solid #ddd',
                 padding: '10px',
-                backgroundColor: '#f9f9f9',
+                backgroundColor: '#fff',
                 position: 'relative',
                 minHeight: '100px',
                 cursor: day ? 'pointer' : 'default', // Hacer clic en los días

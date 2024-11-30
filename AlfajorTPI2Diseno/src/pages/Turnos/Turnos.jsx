@@ -5,14 +5,19 @@ import Button from 'react-bootstrap/Button';
 import TurnosTable from '../../components/Turnos/ListaTurnos';
 import CalendarioTurnos from '../../components/Turnos/CalendarioTurnos';
 import { useNavigate } from 'react-router-dom';
+import './Turnos.css';
+
+
 
 const Turnos = () => {
     const [hovered, setHovered] = useState(false);
 
     const navigate = useNavigate();
 
+
+
     return (
-        <div className="container-fluid" style={{ backgroundColor: '#fff', height: '100vh' }}>
+        <div className="container-fluid" style={{ backgroundColor: '#E3D9B4', height: '100vh' }}>
             <div style={{ height: "9%" }} className="d-flex p-2">
                 <Button
                     style={{
@@ -30,12 +35,12 @@ const Turnos = () => {
                 </Button>
             </div>
             <Tabs defaultActiveKey="calendar" id="uncotrolled-tab-example" className="mb-3">
-                <Tab eventKey="calendar" title="Calendario">
+                <Tab className='componentSyle' eventKey="calendar" title="Calendario">
                     <div style={{ padding: '20px', height: '100%' }}>
                         <CalendarioTurnos />
                     </div>
                 </Tab>
-                <Tab eventKey="Lista" title="Listado">
+                <Tab className='componentSyle' eventKey="Lista" title="Listado">
                     <TurnosTable />
                 </Tab>
             </Tabs>

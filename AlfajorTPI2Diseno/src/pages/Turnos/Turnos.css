@@ -1,0 +1,19 @@
+
+.componentSyle{
+/* From https://css.glass */
+background: rgba(234, 232, 228, 0.5);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(16.5px);
+-webkit-backdrop-filter: blur(16.5px);
+border: 1px solid rgba(234, 232, 228, 0.28)
+}
+
+
+.botonModal{
+    background-color: #CF7C20;
+}
+
+.botonModal:hover{
+    background-color: #A85D15;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import '../../pages/Turnos/Turnos.css';
 
 const ModalInfo = ({ show, onHide, turno }) => {
     return (
@@ -23,7 +24,7 @@ const ModalInfo = ({ show, onHide, turno }) => {
                 )}
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={onHide}>
+                <Button  className="botonModal" variant="secondary" onClick={onHide}>
                     Cerrar
                 </Button>
             </Modal.Footer>

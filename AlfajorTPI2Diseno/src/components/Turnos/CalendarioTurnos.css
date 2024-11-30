@@ -13,6 +13,8 @@
   margin-bottom: 10px;
 }
 
+
+
 .dia-semana {
   text-align: center;
 }
@@ -78,7 +80,7 @@ input {
 }
 
 .calendar-nav button {
-  background-color: #f1f1f1;
+  background-color: #CF7C20;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 5px 10px;
@@ -87,7 +89,7 @@ input {
 }
 
 .calendar-nav button:hover {
-  background-color: #e1e1e1;
+  background-color: #A85D15;
 }
 
 .calendar-nav span {

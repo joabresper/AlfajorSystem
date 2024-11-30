@@ -7,9 +7,12 @@ const MenuATT = () => {
     const navigate = useNavigate();
   return (
     <div style={{ width: '100vw', height: '100vh', backgroundColor: '#E3D9B4' }}>
+      
   <div className="container">
     {/* Imagen inferior izquierda */}
     <img className="small-image" src={Logo} alt="Placeholder" />
+
+    
 
     {/* Fondo del menú */}
     <div className="menu-background"></div>
@@ -36,8 +39,10 @@ const MenuATT = () => {
 
       {/* Botón: Cuenta */}
       <button 
-        className="menu-button">
-        <span className="menu-text">Cuenta</span>
+        className="menu-button"
+        onClick={() => navigate('/login')}
+      >
+        <span className="menu-text">Cerrar Sesion</span>
       </button>
     </div>
 
