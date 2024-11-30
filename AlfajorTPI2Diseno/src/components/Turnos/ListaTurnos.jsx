@@ -9,20 +9,12 @@ import ModalInfo from './Modal';
 const TurnosTable = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [filterName, setFilterName] = useState(''); // Filtro de nombre
+    const [modalShow, setModalShow] = useState(false);
+    const [selectedTurno, setSelectedTurno] = useState(null); // Turno seleccionado
 
-    const [modalShow, setModalShow] = React.useState(false);
+    const handleDateChange = (date) => setSelectedDate(date);
+    const handleNameChange = (e) => setFilterName(e.target.value);
 
-    // Manejar cambios en el filtro de fecha
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
-
-    // Manejar cambios en el filtro de nombre
-    const handleNameChange = (e) => {
-        setFilterName(e.target.value);
-    };
-
-    // Filtrar los turnos por nombre y fecha
     const filteredTurnos = turnos.filter(turno => {
         const matchesName = turno.nombreCliente.toLowerCase().includes(filterName.toLowerCase());
         const matchesDate = selectedDate
@@ -33,27 +25,30 @@ const TurnosTable = () => {
 
     return (
         <div style={{ height: "100%" }}>
-            <div className="mb-3">
-                <label htmlFor="nameFilter">Filtrar por Nombre:</label>
-                <input
-                    id="nameFilter"
-                    type="text"
-                    className="form-control"
-                    placeholder="Escriba el nombre del cliente"
-                    value={filterName}
-                    onChange={handleNameChange}
-                    style={{ width: '20%' }}
-                />
+            <div className="d-flex justify-content-around align-items-center mb-3">
+                <div style={{ width: '80%' }}>
+                    <label htmlFor="nameFilter">Filtrar por Nombre:</label>
+                    <input
+                        id="nameFilter"
+                        type="text"
+                        className="form-control"
+                        placeholder="Escriba el nombre del cliente"
+                        value={filterName}
+                        onChange={handleNameChange}
+                        style={{ width: '40%' }}
+                    />
+                </div>
+                <div style={{ width: '100%' }}>
+                    <h1>Turnos</h1>
+                </div>
             </div>
-            <div className="table-container">
+            <div className="table-container" style={{ width: '70%', margin: '0 auto' }}>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Nombre Cliente</th>
                             <th>DNI</th>
-                            <th>Patente</th>
-                            <th>Modelo</th>
                             <th style={{ width: '10%' }}>
                                 <DatePicker
                                     id="dateFilter"
@@ -69,12 +64,17 @@ const TurnosTable = () => {
                     </thead>
                     <tbody>
                         {filteredTurnos.map((turno, index) => (
-                            <tr  onClick={() => setModalShow(true)} key={index}>
+                            <tr 
+                                className="cursor-pointer" 
+                                onClick={() => {
+                                    setSelectedTurno(turno);
+                                    setModalShow(true);
+                                }} 
+                                key={index}
+                            >
                                 <td>{index + 1}</td>
                                 <td>{turno.nombreCliente}</td>
                                 <td>{turno.dni}</td>
-                                <td>{turno.patente}</td>
-                                <td>{turno.modelo}</td>
                                 <td>{`${turno.fecha.dia}/${turno.fecha.mes}/${turno.fecha.año}`}</td>
                                 <td>{turno.hora}</td>
                             </tr>
@@ -83,12 +83,11 @@ const TurnosTable = () => {
                 </Table>
             </div>
             <ModalInfo
-            show={modalShow}
-            onHide={() => setModalShow(false)}
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                turno={selectedTurno}
             />
         </div>
-
-        
     );
 };
 

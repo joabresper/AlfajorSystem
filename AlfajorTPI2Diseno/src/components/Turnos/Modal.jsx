@@ -1,32 +1,34 @@
-import Button from 'react-bootstrap/Button';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
-const ModalInfo = (props) => {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
+const ModalInfo = ({ show, onHide, turno }) => {
+    return (
+        <Modal show={show} onHide={onHide} centered>
+            <Modal.Header closeButton>
+                <Modal.Title>Información del Turno</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                {turno ? (
+                    <div>
+                        <p><strong>Nombre Cliente:</strong> {turno.nombreCliente}</p>
+                        <p><strong>DNI:</strong> {turno.dni}</p>
+                        <p><strong>Patente:</strong> {turno.patente}</p>
+                        <p><strong>Modelo:</strong> {turno.modelo}</p>
+                        <p><strong>Fecha:</strong> {`${turno.fecha.dia}/${turno.fecha.mes}/${turno.fecha.año}`}</p>
+                        <p><strong>Hora:</strong> {turno.hora}</p>
+                    </div>
+                ) : (
+                    <p>No hay datos disponibles.</p>
+                )}
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={onHide}>
+                    Cerrar
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    );
+};
 
 export default ModalInfo;

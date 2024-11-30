@@ -83,12 +83,15 @@ const CalendarioTurnos = () => {
     };
   
     return (
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: '20px', paddingTop:'0' }}>
         <div className="calendar-header">
         <div className="calendar-nav">
             <button onClick={handlePrevMonth}>{"<"}</button>
             <span>{currentMonth.toLocaleString('default', { month: 'long' })}</span>
             <button onClick={handleNextMonth}>{">"}</button>
+        </div>
+        <div>
+          <h1>Turnos</h1>
         </div>
         <div className="calendar-nav">
             <button onClick={handlePrevYear}>{"<"}</button>
