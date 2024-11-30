@@ -91,6 +91,14 @@ function VehicleControl() {
                 <h1>{formatPascalCase(control)}</h1>
                 <p>Mostrando información para el control asociado al vehículo con patente {patente}.</p>
                 <h2>Resultado provicional: {getVehicleStatus()}</h2> {/* Resultado basado en las severidades */}
+                <div style={styles.container}>
+                    <button style={styles.button} onClick={handleGoBack}>
+                        Guardar y salir
+                    </button>
+                    <button style={styles.buttonred} onClick={handleGoBack}>
+                        Salir sin guardar
+                    </button>
+                </div>
             </header>
 
             <div style={{ padding: "20px" }}>
@@ -136,11 +144,6 @@ function VehicleControl() {
                     ))}
                 </div>
             </div>
-            <div style={styles.container}>
-                <button style={styles.button} onClick={handleGoBack}>
-                    Volver
-                </button>
-            </div>
         </div>
     );
 }
@@ -148,14 +151,26 @@ function VehicleControl() {
 const styles = {
     container: {
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'center', // Distribuye los botones con espacio entre ellos
+        gap: '20px', // Espacio entre los botones
+        padding: '20px', // Espaciado interno
     },
     button: {
         padding: '10px 20px',
         fontSize: '18px',
         border: 'none',
         backgroundColor: '#4CAF50',
+        color: 'white',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        transition: 'background-color 0.3s ease, transform 0.3s ease',
+    },
+    buttonred: {
+        padding: '10px 20px',
+        fontSize: '18px',
+        border: 'none',
+        backgroundColor: '#ff0000',
         color: 'white',
         borderRadius: '5px',
         cursor: 'pointer',

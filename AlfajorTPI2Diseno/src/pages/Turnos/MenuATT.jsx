@@ -1,13 +1,14 @@
 import React from 'react';
 import './MenuATT.css';
 import { useNavigate } from 'react-router-dom';
+import Logo from "../../../public/logo.png";
 
 const MenuATT = () => {
     const navigate = useNavigate();
   return (
     <div className="container">
       {/* Imagen inferior izquierda */}
-      <img className="small-image" src="https://via.placeholder.com/140x114" alt="Placeholder" />
+      <img className="small-image" src={Logo} alt="Placeholder" />
 
       {/* Imagen central translúcida */}
       <img className="background-image" src="https://via.placeholder.com/716x720" alt="Background" />
@@ -28,7 +29,7 @@ const MenuATT = () => {
         className="menu-button"
         style={{ left: '174px' }}
       >
-        <span className="menu-text">CONSULTAR<br />TARIFAS</span>
+        <span className="menu-text">Consultar<br />Tarifas</span>
       </button>
 
       {/* Botón: Responder Consultas */}
@@ -36,7 +37,7 @@ const MenuATT = () => {
         className="menu-button"
         style={{ left: '936px' }}
       >
-        <span className="menu-text">RESPONDER<br />CONSULTAS</span>
+        <span className="menu-text">Responder<br />Consultas</span>
       </button>
 
       {/* Título */}

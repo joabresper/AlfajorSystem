@@ -77,6 +77,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
 };
 
 const VehicleList = () => {
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState(""); // Estado para la barra de búsqueda
     const [selectedVehicle, setSelectedVehicle] = useState(null); // Estado para el vehículo seleccionado para mostrar más info
     const vehicles = [
@@ -132,6 +133,12 @@ const VehicleList = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
+                <button
+                    className="btn btn-primary"
+                    onClick={() => navigate(`/login`)}
+                >
+                    Cerrar Sesión
+                </button>
             </header>
 
             {/* Lista de vehículos */}

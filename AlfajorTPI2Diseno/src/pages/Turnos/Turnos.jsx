@@ -8,7 +8,7 @@ const Turnos = () => {
     return (
        <div class="container-fluid" style={{ backgroundColor: '#fff', height:'100vh'}}>
             <div style={{height:"9%"}}></div>
-            <Tabs defaultActiveKey="profile" id="uncotrolled-tab-example" className="mb-3" >
+            <Tabs defaultActiveKey="calendar" id="uncotrolled-tab-example" className="mb-3" >
                 <Tab eventKey="calendar" title="Calendario">
                  
                     <div style={{ padding: '20px', height: '100%' }}>

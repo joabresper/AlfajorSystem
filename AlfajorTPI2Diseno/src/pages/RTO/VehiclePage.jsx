@@ -78,6 +78,11 @@ function VehiclePage() {
         <div>
             <header style={{ padding: "20px", background: "#f0f0f0", textAlign: "center" }}>
                 <h1>Formulario RTO del vehículo con patente: {patente}</h1>
+                <div style={styles.container}>
+                    <button style={styles.button} onClick={handleGoBack}>
+                        Volver
+                    </button>
+                </div>
             </header>
             <div className="menu">
                 {menuItems.map((item) => (
@@ -96,11 +101,6 @@ function VehiclePage() {
                         </p>
                     </div>
                 ))}
-            </div>
-            <div style={styles.container}>
-                <button style={styles.button} onClick={handleGoBack}>
-                    Volver
-                </button>
             </div>
         </div>
     );
