@@ -64,6 +64,11 @@ const TurnosTable = () => {
                         </tr>
                     </thead>
                     <tbody>
+                        {filteredTurnos.length === 0 && (
+                            <tr>
+                                <td colSpan="5" className="text-center">No se han encontrado resultados para su búsqueda</td>
+                            </tr>
+                        )}
                         {filteredTurnos.map((turno, index) => (
                             <tr 
                                 className="cursor-pointer" 
