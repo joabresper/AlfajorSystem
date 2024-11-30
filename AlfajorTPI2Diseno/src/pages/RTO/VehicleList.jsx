@@ -185,6 +185,10 @@ const VehicleList = () => {
                                     ""
                                 )}${selectedVehicle.Modelo.replace(/\s+/g, "")}.png`}
                                 alt={`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}
+                                onError={(e) => {
+                                    e.target.onerror = null; // Previene un ciclo infinito si la imagen de "autoNoEncontrado.png" no se carga
+                                    e.target.src = "../../public/autos/autoNoEncontrado.png"; // Cambia la imagen en caso de error
+                                }}
                                 style={{
                                     objectFit: "contain", // Mantener la proporción original de la imagen
                                     width: "200px",

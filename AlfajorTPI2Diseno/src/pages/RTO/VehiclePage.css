@@ -1,0 +1,51 @@
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.menu-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
+}
+
+.menu-icon {
+    width: 15rem;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.menu-item:hover .menu-icon {
+    opacity: 0.7;
+}
+
+.menu-name {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-item:hover .menu-name {
+    color: #007BFF;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.grayscale-text {
+    color: #888;
+    cursor: not-allowed;
+}
+
+.menu-item.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
