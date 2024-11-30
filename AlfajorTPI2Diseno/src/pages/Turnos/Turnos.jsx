@@ -1,27 +1,46 @@
+import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import {useState, useEffect} from 'react';
-import TurnosTable from '../../components/Turnos/ListaTurnos'
+import Button from 'react-bootstrap/Button';
+import TurnosTable from '../../components/Turnos/ListaTurnos';
 import CalendarioTurnos from '../../components/Turnos/CalendarioTurnos';
+import { useNavigate } from 'react-router-dom';
 
 const Turnos = () => {
+    const [hovered, setHovered] = useState(false);
+
+    const navigate = useNavigate();
+
     return (
-       <div class="container-fluid" style={{ backgroundColor: '#fff', height:'100vh'}}>
-            <div style={{height:"9%"}}></div>
-            <Tabs defaultActiveKey="calendar" id="uncotrolled-tab-example" className="mb-3" >
+        <div className="container-fluid" style={{ backgroundColor: '#fff', height: '100vh' }}>
+            <div style={{ height: "9%" }} className="d-flex p-2">
+                <Button
+                    style={{
+                        width: '7%',
+                        backgroundColor: hovered ? '#A85D15' : '#CF7C20', // Color más oscuro al hacer hover
+                        border: 'none',
+                        color: '#fff',
+                        transition: 'background-color 0.3s ease', // Animación suave
+                    }}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                    onClick={() => navigate('/menuatt')}
+                >
+                    Volver
+                </Button>
+            </div>
+            <Tabs defaultActiveKey="calendar" id="uncotrolled-tab-example" className="mb-3">
                 <Tab eventKey="calendar" title="Calendario">
-                 
                     <div style={{ padding: '20px', height: '100%' }}>
                         <CalendarioTurnos />
                     </div>
-          
-                </Tab >
+                </Tab>
                 <Tab eventKey="Lista" title="Listado">
                     <TurnosTable />
-                </Tab >
+                </Tab>
             </Tabs>
         </div>
     );
-}
+};
 
 export default Turnos;
