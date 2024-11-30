@@ -4,10 +4,13 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import turnos from './DatosTurnos'; // Datos de turnos
 import './listaTurnos.css';
+import ModalInfo from './Modal';
 
 const TurnosTable = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [filterName, setFilterName] = useState(''); // Filtro de nombre
+
+    const [modalShow, setModalShow] = React.useState(false);
 
     // Manejar cambios en el filtro de fecha
     const handleDateChange = (date) => {
@@ -66,7 +69,7 @@ const TurnosTable = () => {
                     </thead>
                     <tbody>
                         {filteredTurnos.map((turno, index) => (
-                            <tr key={index}>
+                            <tr  onClick={() => setModalShow(true)} key={index}>
                                 <td>{index + 1}</td>
                                 <td>{turno.nombreCliente}</td>
                                 <td>{turno.dni}</td>
@@ -79,7 +82,13 @@ const TurnosTable = () => {
                     </tbody>
                 </Table>
             </div>
+            <ModalInfo
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            />
         </div>
+
+        
     );
 };
 
