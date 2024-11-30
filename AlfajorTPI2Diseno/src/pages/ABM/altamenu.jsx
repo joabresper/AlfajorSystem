@@ -1,8 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Altamenu = () => {
+  const navigate = useNavigate();
   return (
-    <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#E6D9B6' }}>
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#E6D9B6', position: 'relative' }}>
+      <img style={{ width: 140, height: 114, position: 'absolute', left: 0, bottom: 0 }} src="/simbolos y alfajores/Alfajorchico.png" alt="Alfajorchico" />
+      
+      <button
+        style={{
+          width: '50px',
+          height: '50px',
+          position: 'absolute',
+          top: '10px',
+          left: '10px',
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+        }}
+        onClick={() => navigate('/menuabm')}
+      >
+        <img src="/simbolos y alfajores/ultraizquierda.png" alt="Flecha izquierda" style={{ width: '100%', height: '100%' }} />
+      </button>
+      
       <div
         style={{
           width: '969px',
@@ -28,6 +48,7 @@ const Altamenu = () => {
           <FormField label="Correo electrónico" />
           <FormField label="Teléfono" />
           <FormField label="Dirección" />
+          <FormField label="Fecha" type="date" />
         </div>
 
         {/* Save Button */}
@@ -54,7 +75,7 @@ const Altamenu = () => {
 };
 
 // Reusable FormField Component
-const FormField = ({ label }) => {
+const FormField = ({ label, type = 'text' }) => {
   return (
     <div
       style={{
@@ -76,20 +97,19 @@ const FormField = ({ label }) => {
       >
         {label}
       </div>
-      <div
+      <input
+        type={type}
         style={{
           padding: '12px 16px',
           background: 'white',
           borderRadius: '8px',
           border: '1px solid #D9D9D9',
-          color: '#B3B3B3',
+          color: '#1E1E1E',
           fontSize: '16px',
           fontFamily: 'Inter',
           fontWeight: '400',
         }}
-      >
-        Value
-      </div>
+      />
     </div>
   );
 };
