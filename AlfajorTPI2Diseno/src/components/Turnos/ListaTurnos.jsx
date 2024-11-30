@@ -8,33 +8,34 @@ import ModalInfo from './Modal';
 
 const TurnosTable = () => {
     const [selectedDate, setSelectedDate] = useState(null);
-    const [filterName, setFilterName] = useState(''); // Filtro de nombre
+    const [filterNameOrDni, setFilterNameOrDni] = useState(''); // Filtro de nombre o DNI
     const [modalShow, setModalShow] = useState(false);
     const [selectedTurno, setSelectedTurno] = useState(null); // Turno seleccionado
 
     const handleDateChange = (date) => setSelectedDate(date);
-    const handleNameChange = (e) => setFilterName(e.target.value);
+    const handleFilterChange = (e) => setFilterNameOrDni(e.target.value);
 
     const filteredTurnos = turnos.filter(turno => {
-        const matchesName = turno.nombreCliente.toLowerCase().includes(filterName.toLowerCase());
+        const matchesNameOrDni = turno.nombreCliente.toLowerCase().includes(filterNameOrDni.toLowerCase()) ||
+                                 turno.dni.includes(filterNameOrDni);
         const matchesDate = selectedDate
             ? new Date(turno.fecha.año, turno.fecha.mes - 1, turno.fecha.dia).toDateString() === selectedDate.toDateString()
             : true;
-        return matchesName && matchesDate;
+        return matchesNameOrDni && matchesDate;
     });
 
     return (
         <div style={{ height: "100%" }}>
             <div className="d-flex justify-content-around align-items-center mb-3">
                 <div style={{ width: '80%' }}>
-                    <label htmlFor="nameFilter">Filtrar por Nombre:</label>
+                    <label htmlFor="filter">Filtrar por Nombre o DNI:</label>
                     <input
-                        id="nameFilter"
+                        id="filter"
                         type="text"
                         className="form-control"
-                        placeholder="Escriba el nombre del cliente"
-                        value={filterName}
-                        onChange={handleNameChange}
+                        placeholder="Nombre cliente o DNI"
+                        value={filterNameOrDni}
+                        onChange={handleFilterChange}
                         style={{ width: '40%' }}
                     />
                 </div>
