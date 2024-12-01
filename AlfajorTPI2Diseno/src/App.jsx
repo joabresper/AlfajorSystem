@@ -4,7 +4,6 @@ import './App.css'
 import LoginPage from './pages/LoginPage';
 import ABM from './pages/ABM/abm';
 import Menuabm from './pages/ABM/menuabm';
-import BajaMenu from './pages/ABM/bajamenu';
 import BajaConfirmada from './pages/ABM/bajaconfirmada';
 import BajaConfirmacion from './pages/ABM/bajaconfirm';
 import VehicleList from './pages/RTO/VehicleList';
@@ -17,6 +16,7 @@ import MenuGerente from './pages/ABM/menuGerente';
 import MenuATT from './pages/Turnos/menuATT';
 import MenuMecanico from './pages/RTO/menuMecanico';
 import VehicleControl from './pages/RTO/VehicleControl';
+import ModificarMenu from './pages/ABM/modificarmenu';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,7 +30,6 @@ function App() {
           <Route path="/abm" element={<ABM />} />
           <Route path="/altamenu" element={<Altamenu />} />
           <Route path="/altaconfirmada" element={<AltaConfirmada />} />
-          <Route path="/bajamenu" element={<BajaMenu />} />
           <Route path="/bajaconfirmada" element={<BajaConfirmada />} />
           <Route path="/bajaconfirm" element={<BajaConfirmacion />} />
           <Route path="/menuabm" element={<Menuabm />} />
@@ -41,6 +40,7 @@ function App() {
           <Route path="/Vehiculos/:patente" element={<VehiclePage />} />
           <Route path="/Vehiculos/:patente/:control" element={<VehicleControl />} />
           <Route path="/menugerente" element={<MenuGerente />} />
+          <Route path="/modificarmenu" element={<ModificarMenu />} />
         </Routes>
       </BrowserRouter>
     </>

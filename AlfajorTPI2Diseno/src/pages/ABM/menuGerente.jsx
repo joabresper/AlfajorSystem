@@ -35,8 +35,8 @@ const MenuGerente = () => {
 
       {/* Botón: Cuenta */}
       <button 
-        className="menu-button">
-        <span className="menu-text">Cuenta</span>
+        className="menu-button" onClick={() => navigate('/login')}>
+        <span className="menu-text">Cerrar sesión</span>
       </button>
     </div>
 
