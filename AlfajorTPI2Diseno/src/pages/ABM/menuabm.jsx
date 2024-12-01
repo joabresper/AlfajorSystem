@@ -25,16 +25,10 @@ const Menuabm = () => {
         onClick={() => navigate('/modificarmenu')}
       >
         <img style={{ width: 32, height: 32 }} src="/simbolos y alfajores/maslivianoqueunapala.png" alt="Modificación" />
-        <div style={{ color: '#F5F5F5', fontSize: 24, fontFamily: 'Inter', fontWeight: '400', lineHeight: '24px' }}>Modificación</div>
+        <div style={{ color: '#F5F5F5', fontSize: 24, fontFamily: 'Inter', fontWeight: '400', lineHeight: '24px' }}>Modificacion y eliminacion</div>
       </button>
       
-      {/* Sección Baja */}
-      <button style={{ width: 174, height: 75, padding: 12, position: 'absolute', left: '60%', top: '50%', transform: 'translateY(-50%)', background: '#CF7C20', borderRadius: 8, overflow: 'hidden', border: '1px #2C2C2C solid', display: 'flex', alignItems: 'center', gap: 8 }}
-        onClick={() => navigate('/bajamenu')}
-      >
-        <img style={{ width: 32, height: 32 }} src="/simbolos y alfajores/kkk.png" alt="Baja" />
-        <div style={{ color: '#F5F5F5', fontSize: 32, fontFamily: 'Inter', fontWeight: '400', lineHeight: '32px' }}>Baja</div>
-      </button>
+      
       
       {/* Botón Atras */}
       <button style={{ width: 350, height: 80, padding: 12, position: 'absolute', left: '50%', top: '70%', transform: 'translate(-50%, -50%)', background: '#CF7C20', borderRadius: 8, overflow: 'hidden', border: '1px #2C2C2C solid', justifyContent: 'center', alignItems: 'center', gap: 8, display: 'flex' }}
