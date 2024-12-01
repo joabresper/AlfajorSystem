@@ -101,6 +101,13 @@ const Altamenu = () => {
             onChange={handleChange}
             error={errors.dni}
           />
+          <FormField
+            label="Contraseña"
+            name="contraseña"
+            value={formData.contraseña}
+            onChange={handleChange}
+            type="password"
+          />
           <FormFieldSelect
             label="Rol"
             name="rol"
