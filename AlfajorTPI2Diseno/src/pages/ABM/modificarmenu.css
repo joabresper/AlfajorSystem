@@ -82,5 +82,16 @@
     background-color: #f1f1f1;
     cursor: pointer;
   }
+
+.edit-button{
+  background-color: #cf7c20;
+  border: 0;
+}
+
+.edit-button:hover{
+  background-color: #b25e1a;
+}
+
+
   
   

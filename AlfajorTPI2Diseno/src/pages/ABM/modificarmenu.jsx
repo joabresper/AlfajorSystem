@@ -77,8 +77,8 @@ const ModificarMenu = () => {
                             <td>{usuario.nombre}</td>
                             <td>{usuario.rol}</td>
                             <td>
-                                <Button style={{ margin: '10px' }} className="edit-button" onClick={() => handleEdit(usuario)}>Editar</Button>
-                                <Button style={{ margin: '10px' }} className="delete-button"onClick={() => navigate('/bajaconfirm')}>Eliminar</Button>
+                                <Button  style={{ margin: '10px' }} className="edit-button" onClick={() => handleEdit(usuario)}>Editar</Button>
+                                <Button style={{ margin: '10px' }} className="edit-button"onClick={() => navigate('/bajaconfirm')}>Eliminar</Button>
                             </td>
                         </tr>
                     ))}
