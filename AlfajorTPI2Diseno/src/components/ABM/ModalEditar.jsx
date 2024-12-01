@@ -25,7 +25,7 @@ const ModalEditar = ({ show, onHide, usuario, onSave }) => {
     };
 
     return (
-        <Modal show={show} onHide={onHide}>
+        <Modal show={show} onHide={onHide} style={{ backgroundColor: 'transparent' }}>
             <Modal.Header closeButton>
                 <Modal.Title>Editar Usuario</Modal.Title>
             </Modal.Header>

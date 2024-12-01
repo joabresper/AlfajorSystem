@@ -140,14 +140,14 @@ const CalendarioTurnos = () => {
         </div>
   
         {/* Modal para mostrar los turnos del día seleccionado */}
-        <Modal show={showModal} onHide={() => setShowModal(false)} size='lg'>
+        <Modal show={showModal} onHide={() => setShowModal(false)} size='lg' style={{ backgroundColor: 'transparent' }}>
           <Modal.Header closeButton>
             <Modal.Title>Turnos para el día {selectedDay}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <ul>
               {turnosDelDia.map((turno, index) => (
-                <li key={index} className='mb-3'>
+                <li key={index} className='mb-4'>
                   Modelo: <strong>{turno.modelo}</strong>  - Patente: <strong>{turno.patente}</strong> - Hora: <strong>{turno.hora}</strong>
                   <br />
                   <small>Cliente: {turno.nombreCliente} | DNI: {turno.dni}</small>

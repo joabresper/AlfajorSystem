@@ -5,7 +5,7 @@ import '../../pages/Turnos/Turnos.css';
 
 const ModalInfo = ({ show, onHide, turno }) => {
     return (
-        <Modal show={show} onHide={onHide} centered>
+        <Modal show={show} onHide={onHide} centered style={{ backgroundColor: 'transparent' }}>
             <Modal.Header closeButton>
                 <Modal.Title>Información del Turno</Modal.Title>
             </Modal.Header>
