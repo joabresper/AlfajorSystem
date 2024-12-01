@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const VehicleCard = ({ vehicle, onMoreInfo }) => {
     const navigate = useNavigate();
     // Ruta de la imagen del vehículo
-    const imagePath = `../../autos/auto${vehicle.Marca.replace(/\s+/g, "")}${vehicle.Modelo.replace(/\s+/g, "")}.png`;
+    const imagePath = `../../public/autos/auto${vehicle.Marca.replace(/\s+/g, "")}${vehicle.Modelo.replace(/\s+/g, "")}.png`;
 
     // Control de errores de carga de imagen
     const [imageError, setImageError] = useState(false);
@@ -14,7 +14,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
     };
 
     const imageSrc = imageError
-        ? "../../autos/autoNoEncontrado.png" // Imagen por defecto si no se encuentra la imagen del vehículo
+        ? "../../public/autos/autoNoEncontrado.png" // Imagen por defecto si no se encuentra la imagen del vehículo
         : imagePath;
 
     return (
@@ -32,7 +32,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    height: "16rem", // Fijamos la altura para que no se estire
+                    height: "150px", // Fijamos la altura para que no se estire
                     overflow: "hidden",
                 }}
             >
@@ -59,7 +59,7 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
                 <p className="card-text">Patente: {vehicle.Patente}</p>
                 <div className="d-flex justify-content-between">
                     <button
-                        className="btn custom-btn"
+                        className="btn btn-primary"
                         onClick={() => navigate(`/Vehiculos/${vehicle.Patente}`)}
                     >
                         Rellenar formulario RTO
@@ -77,7 +77,6 @@ const VehicleCard = ({ vehicle, onMoreInfo }) => {
 };
 
 const VehicleList = () => {
-    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState(""); // Estado para la barra de búsqueda
     const [selectedVehicle, setSelectedVehicle] = useState(null); // Estado para el vehículo seleccionado para mostrar más info
     const vehicles = [
@@ -108,115 +107,103 @@ const VehicleList = () => {
         console.log("Cerrar modal");
         setSelectedVehicle(null); // Esto debería cerrar el modal
     };
-    
+
 
     return (
-        <div style={{width:'100%', height:'300vh', backgroundColor:'#E3D9B4'}}>
-            <div className="container" >
-                {/* Header con título y barra de búsqueda */}
-                <header
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "1rem",
-                        marginBottom: "1.5rem",
-                        backgroundColor: "#f8f9fa",
-                        borderBottom: "2px solid #ccc",
-                    }}
-                >
-                    <h1 style={{ margin: 0 }}>Vehículos asignados</h1>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Buscar por patente..."
-                        style={{ width: "300px" }}
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                    <button
-                        className="btn custom-btn"
-                        onClick={() => navigate(-1)}
-                    >
-                        Volver
-                    </button>
-                </header>
+        <div className="container">
+            {/* Header con título y barra de búsqueda */}
+            <header
+                style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "1rem",
+                    marginBottom: "1.5rem",
+                    backgroundColor: "#f8f9fa",
+                    borderBottom: "2px solid #ccc",
+                }}
+            >
+                <h1 style={{ margin: 0 }}>Vehículos asignados</h1>
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Buscar por patente..."
+                    style={{ width: "300px" }}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </header>
 
-                {/* Lista de vehículos */}
-                <div className="row">
-                    {filteredVehicles.length > 0 ? (
-                        filteredVehicles.map((vehicle, index) => (
-                            <div className="col-md-4" key={index}>
-                                <VehicleCard vehicle={vehicle} onMoreInfo={handleMoreInfo} />
-                            </div>
-                        ))
-                    ) : (
-                        <p className="text-center">No se encontraron vehículos con esa patente.</p>
-                    )}
-                </div>
-                {/* Modal con la información del vehículo */}
-                {selectedVehicle && (
+            {/* Lista de vehículos */}
+            <div className="row">
+                {filteredVehicles.length > 0 ? (
+                    filteredVehicles.map((vehicle, index) => (
+                        <div className="col-md-4" key={index}>
+                            <VehicleCard vehicle={vehicle} onMoreInfo={handleMoreInfo} />
+                        </div>
+                    ))
+                ) : (
+                    <p className="text-center">No se encontraron vehículos con esa patente.</p>
+                )}
+            </div>
+            {/* Modal con la información del vehículo */}
+            {selectedVehicle && (
+                <div
+                    className="modal"
+                    style={{
+                        display: "block",
+                        position: "fixed",
+                        top: "0",
+                        left: "0",
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0, 0, 0, 0.5)", // Fondo oscuro
+                        zIndex: 1050,
+                    }}
+                    onClick={closeModal} // Cerrar el modal al hacer clic en el fondo
+                >
                     <div
-                        className="modal"
+                        className="modal-dialog"
                         style={{
-                            display: "block",
-                            position: "fixed",
-                            top: "0",
-                            left: "0",
-                            width: "100%",
-                            height: "100%",
-                            backgroundColor: "rgba(0, 0, 0, 0.5)", // Fondo oscuro
-                            zIndex: 1050,
+                            maxWidth: "900px",
+                            margin: "50px auto",
+                            backgroundColor: "#fff",
+                            padding: "20px",
+                            borderRadius: "8px",
+                            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                            zIndex: 1060,
                         }}
-                        onClick={closeModal} // Cerrar el modal al hacer clic en el fondo
+                        onClick={(e) => e.stopPropagation()} // Evita que el clic en el diálogo cierre el modal
                     >
-                        <div
-                            className="modal-dialog"
-                            style={{
-                                maxWidth: "900px",
-                                margin: "50px auto",
-                                backgroundColor: "#fff",
-                                padding: "20px",
-                                borderRadius: "8px",
-                                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                                zIndex: 1060,
-                            }}
-                            onClick={(e) => e.stopPropagation()} // Evita que el clic en el diálogo cierre el modal
-                        >
-                            <div className="modal-header">
-                                <h3 className="modal-title">{`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}</h3>
-                            </div>
-                            <div className="modal-body d-flex">
-                                <img
-                                    src={`../../autos/auto${selectedVehicle.Marca.replace(
-                                        /\s+/g,
-                                        ""
-                                    )}${selectedVehicle.Modelo.replace(/\s+/g, "")}.png`}
-                                    alt={`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}
-                                    onError={(e) => {
-                                        e.target.onerror = null; // Previene un ciclo infinito si la imagen de "autoNoEncontrado.png" no se carga
-                                        e.target.src = "../../autos/autoNoEncontrado.png"; // Cambia la imagen en caso de error
-                                    }}
-                                    style={{
-                                        objectFit: "contain", // Mantener la proporción original de la imagen
-                                        width: "200px",
-                                        height: "auto",
-                                        marginRight: "20px",
-                                    }}
-                                />
-                                <div>
-                                    <p><strong>Año:</strong> {selectedVehicle.Año}</p>
-                                    <p><strong>Patente:</strong> {selectedVehicle.Patente}</p>
-                                    <p><strong>Fecha de Ingreso:</strong> {selectedVehicle.FechaIngreso}</p>
-                                    <p><strong>Dueño:</strong> {selectedVehicle.Dueno}</p>
-                                    <p><strong>DNI del dueño:</strong> {selectedVehicle.Dni}</p>
-                                    <p><strong>Otras personas que pueden retirar:</strong> {selectedVehicle.OtrosRetirar}</p>
-                                </div>
+                        <div className="modal-header">
+                            <h3 className="modal-title">{`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}</h3>
+                        </div>
+                        <div className="modal-body d-flex">
+                            <img
+                                src={`../../public/autos/auto${selectedVehicle.Marca.replace(
+                                    /\s+/g,
+                                    ""
+                                )}${selectedVehicle.Modelo.replace(/\s+/g, "")}.png`}
+                                alt={`${selectedVehicle.Marca} ${selectedVehicle.Modelo}`}
+                                style={{
+                                    objectFit: "contain", // Mantener la proporción original de la imagen
+                                    width: "200px",
+                                    height: "auto",
+                                    marginRight: "20px",
+                                }}
+                            />
+                            <div>
+                                <p><strong>Año:</strong> {selectedVehicle.Año}</p>
+                                <p><strong>Patente:</strong> {selectedVehicle.Patente}</p>
+                                <p><strong>Fecha de Ingreso:</strong> {selectedVehicle.FechaIngreso}</p>
+                                <p><strong>Dueño:</strong> {selectedVehicle.Dueno}</p>
+                                <p><strong>DNI del dueño:</strong> {selectedVehicle.Dni}</p>
+                                <p><strong>Otras personas que pueden retirar:</strong> {selectedVehicle.OtrosRetirar}</p>
                             </div>
                         </div>
                     </div>
-                )}
-            </div>
+                </div>
+            )}
         </div>
     );
 };

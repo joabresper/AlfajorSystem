@@ -11,6 +11,12 @@
     position: relative;
   }
   
+  .sign-in__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
   .sign-in__wrapper form {
     width: 24rem;
     max-width: 90%;
@@ -36,5 +42,4 @@
       transform: translate(0, 0);
     }
   }
-  
   
