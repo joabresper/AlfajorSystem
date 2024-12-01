@@ -60,30 +60,33 @@ const ModificarMenu = () => {
                 </Alert>
             )}
 
-            {/* Tabla de usuarios */}
-            <table className="user-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Rol</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {usuariosList.map((usuario) => (
-                        <tr key={usuario.id}>
-                            <td>{usuario.id}</td>
-                            <td>{usuario.nombre}</td>
-                            <td>{usuario.rol}</td>
-                            <td>
-                                <Button  style={{ margin: '10px' }} className="edit-button" onClick={() => handleEdit(usuario)}>Editar</Button>
-                                <Button style={{ margin: '10px' }} className="edit-button"onClick={() => navigate('/bajaconfirm')}>Eliminar</Button>
-                            </td>
+            {/* Contenedor de la tabla */}
+            <div className="table-container">
+                <table className="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {usuariosList.map((usuario) => (
+                            <tr key={usuario.id}>
+                                <td>{usuario.id}</td>
+                                <td>{usuario.nombre}</td>
+                                <td>{usuario.rol}</td>
+                                <td>
+                                    <Button style={{ margin: '10px' }} className="edit-button" onClick={() => handleEdit(usuario)}>Editar</Button>
+                                    <Button style={{ margin: '10px' }} className="delete-button" onClick={() => navigate('/bajaconfirm')}>Eliminar</Button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
 
             {/* Modal para editar usuario */}
             {selectedUsuario && (

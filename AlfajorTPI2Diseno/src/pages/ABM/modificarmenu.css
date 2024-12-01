@@ -3,13 +3,14 @@
     width: 100%;
     height: 100vh;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #E3D9B4;
     position: relative;
     box-sizing: border-box;
-  }
-  
-  /* Botón Volver */
-  .back-button {
+    overflow-y: auto;
+}
+
+/* Botón Volver */
+.back-button {
     top: 10px;
     left: 10px;
     margin-bottom: 20px;
@@ -21,77 +22,73 @@
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .back-button:hover {
+}
+
+.back-button:hover {
     background-color: #b25e1a;
-  }
-  
-  /* Tabla de usuarios */
-  .user-table {
+}
+
+/* Tabla de usuarios */
+.user-table {
     width: 100%;
+    height: auto; /* Ajusta la altura automáticamente */
     border-collapse: collapse;
     margin-top: 50px;
     text-align: left;
     background: white;
     border: 1px solid #ddd;
-  }
-  
-  .user-table th,
-  .user-table td {
-    padding: 12px 15px;
+}
+
+.user-table th,
+.user-table td {
+    padding: 20px 25px; /* Aumenté el padding para mayor tamaño */
     border: 1px solid #ddd;
-  }
-  
-  .user-table th {
+    font-size: 1.2rem; /* Aumento de tamaño de fuente */
+}
+
+.user-table th {
     background-color: #41301c;
     color: white;
-  }
-  
-  .user-table tr:hover {
+}
+
+.user-table tr:hover {
     background-color: #f2f2f2;
     cursor: pointer;
-  }
+}
 
-  .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .table-container {
+/* Estilo para el contenedor de la tabla */
+.table-container {
     margin: 20px;
-  }
-  
-  .user-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .user-table th, .user-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .user-table tr:hover {
-    background-color: #f1f1f1;
+    overflow-y: auto;
+    height: calc(100vh - 150px); /* Ajusté la altura para que sea más grande */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Botones de acción */
+.edit-button {
+    background-color: #cf7c20;
+    border: 0;
+    font-size: 1.2rem;
+    padding: 12px 18px;
     cursor: pointer;
-  }
-
-.edit-button{
-  background-color: #cf7c20;
-  border: 0;
+    border-radius: 5px;
+    margin-right: 15px; /* Más espacio entre botones */
 }
 
-.edit-button:hover{
-  background-color: #b25e1a;
+.edit-button:hover {
+    background-color: #b25e1a;
 }
 
+.delete-button {
+    background-color: #dc3545;
+    border: 0;
+    font-size: 1.2rem;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-  
-  
+.delete-button:hover {
+    background-color: #c82333;
+}

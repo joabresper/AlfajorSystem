@@ -6,7 +6,6 @@ const Altamenu = () => {
 
   // Estado para manejar datos del formulario
   const [formData, setFormData] = useState({
-    contraseña: "",
     dni: "",
     rol: "Mecánico", // Valor por defecto
     nombre: "",
@@ -37,6 +36,24 @@ const Altamenu = () => {
     return !isNaN(dni) && dni >= 1000000 && dni <= 99999999;
   };
 
+  // Validar nombre (solo letras, cualquier largo)
+  const validateName = (name) => {
+    const nameRegex = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/; // Permite letras, acentos, ñ y espacios
+    return nameRegex.test(name);
+  };
+
+  // Validar apellido (igual que nombre)
+  const validateLastName = (lastName) => {
+    const lastNameRegex = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/; // Permite letras, acentos, ñ y espacios
+    return lastNameRegex.test(lastName);
+  };
+
+  // Validar que un campo no esté vacío
+  const validateNotEmpty = (value) => {
+    return value.trim() !== ''; // Elimina espacios y verifica que no esté vacío
+  };
+
+
   // Manejar cambios en los campos del formulario
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,12 +71,25 @@ const Altamenu = () => {
       newErrors.telefono = "El teléfono debe tener 10 dígitos";
     }
     if (!validateDni(formData.dni)) {
-      newErrors.dni = "El DNI debe ser numérico y estar entre 1,000,000 y 99,999,999";
+      newErrors.dni = "El DNI ingresado no es válido";
+    }
+    if (!validateName(formData.nombre)) {
+      newErrors.nombre = "El nombre debe contener solo letras y espacios";
+    }
+    if (!validateLastName(formData.apellido)) {
+      newErrors.apellido = "El apellido debe contener solo letras y espacios";
+    }
+    if (!validateNotEmpty(formData.direccion)) {
+      newErrors.direccion = "La direccion no puede estar vacía";
+    }
+    if (!validateNotEmpty(formData.fecha)) {
+      newErrors.fecha = "Seleccionar una fecha";
     }
 
     setErrors(newErrors);
+    console.log(newErrors)
 
-    if (Object.keys(newErrors).length === 0) {
+    if (Object.keys(newErrors).length == 0) {
       setIsModalOpen(true); // Muestra el modal
     }
   };
@@ -87,12 +117,14 @@ const Altamenu = () => {
             name="nombre"
             value={formData.nombre}
             onChange={handleChange}
+            error={errors.nombre}
           />
           <FormField
             label="Apellido"
             name="apellido"
             value={formData.apellido}
             onChange={handleChange}
+            error={errors.apellido}
           />
           <FormField
             label="DNI"
@@ -127,6 +159,7 @@ const Altamenu = () => {
             name="direccion"
             value={formData.direccion}
             onChange={handleChange}
+            error={errors.direccion}
           />
           <FormField
             label="Fecha de nacimiento"
@@ -134,13 +167,20 @@ const Altamenu = () => {
             value={formData.fecha}
             onChange={handleChange}
             type="date"
+            error={errors.fecha}
           />
         </div>
 
         {/* Botón Guardar */}
-        <button style={saveButtonStyle} onClick={handleSubmit}>
-          Guardar
-        </button>
+        <div style={styles.container}>
+          <button style={saveButtonStyle} onClick={handleSubmit}>
+            Guardar
+          </button>
+          {/* Botón para volver */}
+          <button style={saveButtonStyle} onClick={() => navigate(-1)}>
+            Volver
+          </button>
+        </div>
       </div>
       
       {/* Modal Personalizado */}
@@ -291,4 +331,12 @@ const FormFieldSelect = ({ label, name, value, onChange, options }) => (
   </div>
 );
 
+const styles = {
+  container: {
+    display: 'flex',
+    justifyContent: 'center', // Distribuye los botones con espacio entre ellos
+    gap: '20px', // Espacio entre los botones
+    padding: '20px', // Espaciado interno
+  },
+}
 export default Altamenu;

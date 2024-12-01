@@ -6,35 +6,132 @@ const Menuabm = () => {
 
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative', background: '#E6D9B6' }}>
-      <img style={{ width: 847, height: 843, position: 'absolute', left: '50%', top: '10%', transform: 'translateX(-50%)' }} src="/simbolos y alfajores/alfagear.png" alt="Alfagear" />
-      <img style={{ width: 140, height: 114, position: 'absolute', left: 0, bottom: 0 }} src="/simbolos y alfajores/Alfajorchico.png" alt="Alfajorchico" />
-      
+      <img
+        style={{
+          width: '80%',
+          maxWidth: '847px',
+          height: 'auto',
+          position: 'absolute',
+          left: '50%',
+          top: '10%',
+          transform: 'translateX(-50%)'
+        }}
+        src="/simbolos y alfajores/alfagear.png"
+        alt="Alfagear"
+      />
+
       {/* Barra marrón */}
-      <div style={{ width: 850, height: 120, position: 'absolute', left: '50%', top: '44%', transform: 'translateX(-50%)', background: '#41301C', borderRadius: 8 }}></div>
-      
-      {/* Sección Alta */}
-      <button style={{ width: 147, height: 73, padding: 12, position: 'absolute', left: '30%', top: '50%', transform: 'translateY(-50%)', background: '#CF7C20', borderRadius: 8, overflow: 'hidden', border: '1px #2C2C2C solid', display: 'flex', alignItems: 'center', gap: 8 }}
-        onClick={() => navigate('/altamenu')}
+      <div
+        style={{
+          width: '80%',
+          maxWidth: '850px',
+          height: '10vh',
+          maxHeight: '120px',
+          position: 'absolute',
+          left: '50%',
+          top: '44%',
+          transform: 'translateX(-50%)',
+          background: '#41301C',
+          borderRadius: '8px',
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          padding: '0 20px'
+        }}
       >
-        <img style={{ width: 32, height: 32 }} src="/simbolos y alfajores/plus.png" alt="Alta" />
-        <div style={{ color: '#F5F5F5', fontSize: 32, fontFamily: 'Inter', fontWeight: '400', lineHeight: '32px' }}>Alta</div>
-      </button>
-      
-      {/* Sección Modificación */}
-      <button style={{ width: 253, height: 75, padding: 12, position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: '#CF7C20', borderRadius: 8, overflow: 'hidden', border: '1px #2C2C2C solid', display: 'flex', alignItems: 'center', gap: 8 }}
-        onClick={() => navigate('/modificarmenu')}
-      >
-        <img style={{ width: 32, height: 32 }} src="/simbolos y alfajores/maslivianoqueunapala.png" alt="Modificación" />
-        <div style={{ color: '#F5F5F5', fontSize: 24, fontFamily: 'Inter', fontWeight: '400', lineHeight: '24px' }}>Modificacion y eliminacion</div>
-      </button>
-      
-      
-      
+        {/* Botón Alta */}
+        <button
+          style={{
+            flex: 1,
+            maxWidth: '200px',
+            height: '75%',
+            padding: '12px',
+            background: '#CF7C20',
+            borderRadius: '8px',
+            border: '1px #2C2C2C solid',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            justifyContent: 'center',
+            margin: '0 10px'
+          }}
+          onClick={() => navigate('/altamenu')}
+        >
+          <img
+            style={{
+              width: '10%',
+              maxWidth: '32px',
+              height: 'auto'
+            }}
+            src="/simbolos y alfajores/plus.png"
+            alt="Alta"
+          />
+          <div style={{ color: '#F5F5F5', fontSize: '1.5rem', fontFamily: 'Inter', fontWeight: '400' }}>Alta</div>
+        </button>
+
+        {/* Botón Modificación */}
+        <button
+          style={{
+            flex: 1,
+            maxWidth: '300px',
+            height: '75%',
+            padding: '12px',
+            background: '#CF7C20',
+            borderRadius: '8px',
+            border: '1px #2C2C2C solid',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            justifyContent: 'center',
+            margin: '0 10px'
+          }}
+          onClick={() => navigate('/modificarmenu')}
+        >
+          <img
+            style={{
+              width: '50%',
+              maxWidth: '30px',
+              height: 'auto'
+            }}
+            src="/simbolos y alfajores/maslivianoqueunapala.png"
+            alt="Modificación y baja"
+          />
+          <div style={{ color: '#F5F5F5', fontSize: '1.5rem', fontFamily: 'Inter', fontWeight: '400' }}>Modificación-Baja</div>
+        </button>
+      </div>
+
       {/* Botón Atras */}
-      <button style={{ width: 350, height: 80, padding: 12, position: 'absolute', left: '50%', top: '70%', transform: 'translate(-50%, -50%)', background: '#CF7C20', borderRadius: 8, overflow: 'hidden', border: '1px #2C2C2C solid', justifyContent: 'center', alignItems: 'center', gap: 8, display: 'flex' }}
+      <button
+        style={{
+          width: '50%',
+          maxWidth: '400px',
+          height: '12vh',
+          maxHeight: '80px',
+          padding: '12px',
+          position: 'absolute',
+          left: '50%',
+          top: '70%',
+          transform: 'translate(-50%, -50%)',
+          background: '#CF7C20',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          border: '1px #2C2C2C solid',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '8px',
+          display: 'flex'
+        }}
         onClick={() => navigate('/menugerente')}
       >
-        <div style={{ color: '#F5F5F5', fontSize: 48, fontFamily: 'Inter', fontWeight: '400', lineHeight: '57.60px', wordWrap: 'break-word' }}>Volver al inicio</div>
+        <div style={{
+          color: '#F5F5F5',
+          fontSize: '1.5rem',
+          fontFamily: 'Inter',
+          fontWeight: '400',
+          wordWrap: 'break-word'
+        }}>
+          Volver al inicio
+        </div>
       </button>
     </div>
   );

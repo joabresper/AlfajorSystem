@@ -79,11 +79,15 @@ const ModalEditar = ({ show, onHide, usuario, onSave }) => {
                     <Form.Group controlId="formRol">
                         <Form.Label>Rol</Form.Label>
                         <Form.Control
-                            type="text"
+                            as="select"
                             name="rol"
                             value={formData.rol || ''}
                             onChange={handleChange}
-                        />
+                        >
+                            <option value="Mecánico">Mecánico</option>
+                            <option value="Atención al cliente">Atención al cliente</option>
+                            <option value="Director técnico">Director técnico</option>
+                        </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="formFechaNac">
                         <Form.Label>Fecha de Nacimiento</Form.Label>
