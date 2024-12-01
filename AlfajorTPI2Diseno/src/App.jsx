@@ -15,6 +15,9 @@ import Altamenu from './pages/ABM/altamenu';
 import AltaConfirmada from './pages/ABM/altaconfirmada';
 import MenuGerente from './pages/ABM/menuGerente';
 import ModificarMenu from './pages/ABM/modificarmenu';
+import MenuATT from './pages/Turnos/menuATT';
+import MenuMecanico from './pages/RTO/menuMecanico';
+import VehicleControl from './pages/RTO/VehicleControl';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,7 +38,10 @@ function App() {
           <Route path="/menuabm" element={<Menuabm />} />
           <Route path="/Vehiculos" element={<VehicleList />} />
           <Route path="/turnos" element={<Turnos />} />
+          <Route path="/menuatt" element={<MenuATT />} />
+          <Route path="/menumecanico" element={<MenuMecanico />} />
           <Route path="/Vehiculos/:patente" element={<VehiclePage />} />
+          <Route path="/Vehiculos/:patente/:control" element={<VehicleControl />} />
           <Route path="/menugerente" element={<MenuGerente />} />
         </Routes>
       </BrowserRouter>

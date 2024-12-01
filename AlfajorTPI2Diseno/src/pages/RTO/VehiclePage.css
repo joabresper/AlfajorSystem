@@ -1,0 +1,169 @@
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    /* Asegura que toda la grid esté centrada */
+    place-items: center;
+    /* Asegura que las últimas tarjetas queden centradas */
+    grid-auto-rows: auto;
+    /* Asegura filas consistentes */
+}
+
+.menu-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:last-child:nth-child(odd):not(:only-child) {
+    grid-column: span 2;
+    /* Hace que el último elemento se extienda y se centre */
+    justify-self: center;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
+}
+
+.menu-icon {
+    width: 15rem;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.menu-item:hover .menu-icon {
+    opacity: 0.7;
+}
+
+.menu-name {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-item:hover .menu-name {
+    color: #007BFF;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.grayscale-text {
+    color: #888;
+    cursor: not-allowed;
+}
+
+.menu-item.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.control-item {
+    margin-bottom: 15px;
+}
+
+.control-item h4 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.severity-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    /* Alineación a la izquierda */
+}
+
+.severity-button {
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid;
+    transition: 0.3s ease;
+}
+
+.severity-button.green {
+    background-color: lightgreen;
+}
+
+.severity-button.yellow {
+    background-color: yellow;
+}
+
+.severity-button.red {
+    background-color: red;
+}
+
+.severity-button.lightgreen {
+    background-color: green;
+}
+
+.severity-button:hover {
+    opacity: 0.8;
+}
+
+.custom-btn {
+    background-color: #CF7C20;
+    /* Cambia el color de fondo */
+    color: white;
+    /* Cambia el color del texto */
+    border: none;
+    /* Opcional: quitar el borde */
+}
+
+.custom-btn:hover {
+    background-color: #bd6e14;
+    /* Color al hacer hover */
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.page-container {
+    background-color: #f0f0f0;
+    background-image: url('/ruta/a/tu/imagen.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+body {
+    background-color: #E3D9B4;
+    /* Color sólido */
+    background-image: url('/ruta/a/tu/imagen.jpg');
+    /* Imagen de fondo */
+    background-size: cover;
+    /* Escala la imagen para que cubra toda la página */
+    background-position: center;
+    /* Centra la imagen */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+}
